@@ -1,0 +1,44 @@
+[
+  {
+    "Number": 1,
+    "Name": "الفاتحة",
+    "EnglishName": "Al-Faatiha",
+    "EnglishNameTranslation": "The Opening",
+    "RevelationPlace": "Meccan",
+    "Ayahs": [
+      {
+        "Number": 1,
+        "GlobalNumber": 1,
+        "Juz": 1,
+        "Page": 1,
+        "Text": "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ",
+        "Translation": "In the name of Allah, the Entirely Merciful, the Especially Merciful."
+      },
+      {
+        "Number": 2,
+        "GlobalNumber": 2,
+        "Juz": 1,
+        "Page": 1,
+        "Text": "ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ",
+        "Translation": "All praise is [due] to Allah, Lord of the worlds "
+      }
+    ]
+  },
+  {
+    "Number": 2,
+    "Name": "البقرة",
+    "EnglishName": "Al-Baqarah",
+    "EnglishNameTranslation": "The Cow",
+    "RevelationPlace": "Medinan",
+    "Ayahs": [
+      {
+        "Number": 1,
+        "GlobalNumber": 3,
+        "Juz": 1,
+        "Page": 2,
+        "Text": "الٓمٓ",
+        "Translation": "Alif, Lam, Meem."
+      }
+    ]
+  }
+]
