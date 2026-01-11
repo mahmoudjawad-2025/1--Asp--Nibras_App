@@ -3,37 +3,65 @@
 
 ---
 
-### 📋 API Endpoint Summary
-*Click on a path to jump to its details.*
-
 | Path | Method | Summary |
 | :--- | :--- | :--- |
-| [/api/Student/Course/GetAll](#apistudentcoursegetall) | `GET` | Get all courses |
-| [/api/Student/Course/GetById/{id}](#apistudentcoursegetbyidid) | `GET` | Get course by ID |
-| [/api/Student/Lesson/GetAll](#apistudentlessongetall) | `GET` | Get all lessons |
-| [/api/Student/Lesson/GetById/{id}](#apistudentlessongetbyidid) | `GET` | Get lesson by ID |
-| [/api/Student/Lesson/GetByCourseId/{courseId}](#apistudentlessongetbycourseidcourseid) | `GET` | Get lessons by course |
-| [/api/Student/Quiz/GetAll](#apistudentquizgetall) | `GET` | Get all quizzes |
-| [/api/Student/Quiz/GetById/{id}](#apistudentquizgetbyidid) | `GET` | Get quiz by ID |
-| [/api/Student/Quran/surahs](#apistudentquransurahs) | `GET` | Get all Surahs |
-| [/api/Student/Quran/surahs/{number}](#apistudentquransurahsnumber) | `GET` | Get Surah by number |
-| [/api/Student/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}](#apistudentquransurahssurahnumberayahsayahnumber) | `GET` | Get Ayah |
-| [/api/Student/Quran/search](#apistudentquransearch) | `GET` | Search Quran |
-| [/api/Student/Quran/SearchGeneric](#apistudentquransearchgeneric) | `GET` | Generic search |
-| [/api/Student/User/GetMyProfile](#apistudentusergetmyprofile) | `GET` | Get profile |
-| [/api/Student/User/UpdateMyProfile](#apistudentuserupdatemyprofile) | `PUT` | Update profile |
-| [/api/Student/User/ChangePassword](#apistudentuserchangepassword) | `PUT` | Change password |
-| [/api/Student/User/ChangeEmail](#apistudentuserchangeemail) | `PUT` | Change email |
-| [/api/Student/User/ConfirmNewEmail](#apistudentuserconfirmnewemail) | `GET` | Confirm email |
-| [/api/Student/UserProgress/add](#apistudentuserprogressadd) | `POST` | Add progress |
-| [/api/Student/UserProgress/me](#apistudentuserprogressme) | `GET` | Get my progress |
-| [/api/Student/ThikrCategory/GetAll](#apistudentthikrcategorygetall) | `GET` | Get all Thikr |
-| [/api/Student/ThikrCategory/GetById/{id}](#apistudentthikrcategorygetbyidid) | `GET` | Get Thikr by ID |
-| [/api/Student/ThikrCategory/Search](#apistudentthikrcategorysearch) | `GET` | Search Thikr |
-| [/api/Admin/Course/Create](#apiadmincoursecreate) | `POST` | Create course |
-| [/api/Admin/Course/Update/{id}](#apiadmincourseupdateid) | `PUT` | Update course |
-| [/api/Admin/Course/ToggleStatus/{id}](#apiadmincoursetogglestatusid) | `PATCH` | Toggle status |
-| [/api/Admin/Course/Delete/{id}](#apiadmincoursedeleteid) | `DELETE` | Delete course |
+| [/api/Admin/Category/Create](#apiadmincategorycreate) | `POST` | Create Category |
+| [/api/Admin/Category/Delete/{id}](#apiadmincategorydeleteid) | `DELETE` | Delete Category |
+| [/api/Admin/Category/GetAll](#apiadmincategorygetall) | `GET` | Get All Categories |
+| [/api/Admin/Category/GetById/{id}](#apiadmincategorygetbyidid) | `GET` | Get Category By ID |
+| [/api/Admin/Category/ToggleStatus/{id}](#apiadmincategorytogglestatusid) | `PATCH` | Toggle Category Status |
+| [/api/Admin/Category/Update/{id}](#apiadmincategoryupdateid) | `PATCH` | Update Category |
+| [/api/Admin/Course/Create](#apiadmincoursecreate) | `POST` | Create Course |
+| [/api/Admin/Course/Delete/{id}](#apiadmincoursedeleteid) | `DELETE` | Delete Course |
+| [/api/Admin/Course/GetAll](#apiadmincoursegetall) | `GET` | Get All Courses |
+| [/api/Admin/Course/GetById/{id}](#apiadmincoursegetbyidid) | `GET` | Get Course By ID |
+| [/api/Admin/Course/ToggleStatus/{id}](#apiadmincoursetogglestatusid) | `PATCH` | Toggle Course Status |
+| [/api/Admin/Course/Update/{id}](#apiadmincourseupdateid) | `PUT` | Update Course |
+| [/api/Admin/HadithBooks/Create](#apiadminhadithbookscreate) | `POST` | Create Hadith Book |
+| [/api/Admin/HadithBooks/Delete/{id}](#apiadminhadithbooksdeleteid) | `DELETE` | Delete Hadith Book |
+| [/api/Admin/HadithBooks/GetAll](#apiadminhadithbooksgetall) | `GET` | Get All Hadith Books |
+| [/api/Admin/HadithBooks/GetById/{id}](#apiadminhadithbooksgetbyidid) | `GET` | Get Hadith Book By ID |
+| [/api/Admin/HadithBooks/Search](#apiadminhadithbookssearch) | `GET` | Search Hadith Books |
+| [/api/Admin/HadithBooks/ToggleStatus/{id}](#apiadminhadithbookstogglestatusid) | `PATCH` | Toggle Book Status |
+| [/api/Admin/HadithBooks/Update/{id}](#apiadminhadithbooksupdateid) | `PUT` | Update Hadith Book |
+| [/api/Admin/HadithBooks/{id}/chapters](#apiadminhadithbooksidchapters) | `GET` | Get Chapters by Book |
+| [/api/Admin/HadithBooks/{id}/hadiths](#apiadminhadithbooksidhadiths) | `GET` | Get Hadiths by Book |
+| [/api/Admin/HadithBooks/{id}/random](#apiadminhadithbooksidrandom) | `GET` | Get Random Hadith |
+| [/api/Admin/HadithBooks/{id}/stats](#apiadminhadithbooksidstats) | `GET` | Get Book Stats |
+| [/api/Admin/HadithChapters/Create](#apiadminhadithchapterscreate) | `POST` | Create Chapter |
+| [/api/Admin/HadithChapters/Delete/{id}](#apiadminhadithchaptersdeleteid) | `DELETE` | Delete Chapter |
+| [/api/Admin/HadithChapters/GetAll](#apiadminhadithchaptersgetall) | `GET` | Get All Chapters |
+| [/api/Admin/HadithChapters/GetById/{id}](#apiadminhadithchaptersgetbyidid) | `GET` | Get Chapter By ID |
+| [/api/Admin/HadithChapters/Search](#apiadminhadithchapterssearch) | `GET` | Search Chapters |
+| [/api/Admin/HadithChapters/ToggleStatus/{id}](#apiadminhadithchapterstogglestatusid) | `PATCH` | Toggle Chapter Status |
+| [/api/Admin/HadithChapters/Update/{id}](#apiadminhadithchaptersupdateid) | `PUT` | Update Chapter |
+| [/api/Admin/HadithChapters/book/{bookId}](#apiadminhadithchaptersbookbookid) | `GET` | Get Chapters by Book ID |
+| [/api/Admin/HadithChapters/{id}/hadiths](#apiadminhadithchaptersidhadiths) | `GET` | Get Hadiths by Chapter |
+| [/api/Admin/Hadiths/Create](#apiadminhadithscreate) | `POST` | Create Hadith |
+| [/api/Admin/Hadiths/Delete/{id}](#apiadminhadithsdeleteid) | `DELETE` | Delete Hadith |
+| [/api/Admin/Hadiths/GetAll](#apiadminhadithsgetall) | `GET` | Get All Hadiths |
+| [/api/Admin/Hadiths/Search](#apiadminhadithssearch) | `GET` | Search Hadiths |
+| [/api/Admin/Lesson/Create](#apiadminlessoncreate) | `POST` | Create Lesson |
+| [/api/Admin/Lesson/Delete/{id}](#apiadminlessondeleteid) | `DELETE` | Delete Lesson |
+| [/api/Admin/Lesson/GetAll](#apiadminlessongetall) | `GET` | Get All Lessons |
+| [/api/Admin/Lesson/GetByCourseId/{courseId}](#apiadminlessongetbycourseidcourseid) | `GET` | Get Lessons by Course |
+| [/api/Admin/Quiz/Create](#apiadminquizcreate) | `POST` | Create Quiz |
+| [/api/Admin/Quiz/GetAll](#apiadminquizgetall) | `GET` | Get All Quizzes |
+| [/api/Admin/Quran/surahs](#apiadminquransurahs) | `GET` | Get All Surahs |
+| [/api/Admin/Quran/search](#apiadminquransearch) | `GET` | Search Quran |
+| [/api/Admin/ThikrCategory/Create](#apiadminthikrcategorycreate) | `POST` | Create Thikr Category |
+| [/api/Admin/ThikrCategory/GetAll](#apiadminthikrcategorygetall) | `GET` | Get All Thikr Categories |
+| [/api/Admin/ThikrItem/Create](#apiadminthikritemcreate) | `POST` | Create Thikr Item |
+| [/api/Admin/User/GetAllUsers](#apiadminusergetallusers) | `GET` | Get All Users |
+| [/api/Admin/User/BlockUser/{userId}](#apiadminuserblockuseruserid) | `PATCH` | Block User |
+| [/api/Admin/User/UpdateMyProfile](#apiadminuserupdatemyprofile) | `PUT` | Update Profile |
+| [/api/Identity/Authentication/Login](#apiidentityauthenticationlogin) | `POST` | User Login |
+| [/api/Identity/Authentication/Register](#apiidentityauthenticationregister) | `POST` | User Registration |
+| [/api/Student/Course/GetAll](#apistudentcoursegetall) | `GET` | Get All Courses |
+| [/api/Student/Quran/surahs](#apistudentquransurahs) | `GET` | Get Surahs |
+| [/api/Student/HadithBooks/GetAll](#apistudenthadithbooksgetall) | `GET` | Get Hadith Books |
+
+
 
 ---
 
