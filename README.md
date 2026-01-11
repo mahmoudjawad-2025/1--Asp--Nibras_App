@@ -76,16 +76,16 @@ The **Nibras API** powers a modern learning platform with:
 - Secure JWT login  
 - Generic repository & service pattern  
 - File uploading module
-- And other features...
+- And other features ...
 
 <br>
 
 ## 🧩 Key Features
-✨ Secure JWT authentication
-✨ Generic CRUD for all entities
-✨ Track student progress
-✨ Upload files
-✨ Clean and scalable 3-layer architecture
+* ✨ Secure JWT authentication 
+* ✨ Generic CRUD for all entities
+* ✨ Track student progress
+* ✨ Upload files
+* ✨ Clean and scalable 3-layer architecture
 
 <br>
 
