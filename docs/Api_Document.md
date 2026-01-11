@@ -1,11 +1,232 @@
-# PL | v1
+# Project API Documentation | v1
 ## Version: 1.0.0
 
+---
 
-<table><tr><td>Path</td><td>Method</td><td>Summary</td></tr><tr><td>/api/Admin/Category/Create</td><td>POST</td><td></td></tr><tr><td>/api/Admin/Category/Delete/{id}</td><td>DELETE</td><td></td></tr><tr><td>/api/Admin/Category/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Category/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Category/ToggleStatus/{id}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/Category/Update/{id}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/Course/Create</td><td>POST</td><td></td></tr><tr><td>/api/Admin/Course/Delete/{id}</td><td>DELETE</td><td></td></tr><tr><td>/api/Admin/Course/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Course/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Course/ToggleStatus/{id}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/Course/Update/{id}</td><td>PUT</td><td></td></tr><tr><td>/api/Admin/HadithBooks/Create</td><td>POST</td><td></td></tr><tr><td>/api/Admin/HadithBooks/Delete/{id}</td><td>DELETE</td><td></td></tr><tr><td>/api/Admin/HadithBooks/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Admin/HadithBooks/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/HadithBooks/Search</td><td>GET</td><td></td></tr><tr><td>/api/Admin/HadithBooks/ToggleStatus/{id}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/HadithBooks/Update/{id}</td><td>PUT</td><td></td></tr><tr><td>/api/Admin/HadithBooks/{id}/chapters</td><td>GET</td><td></td></tr><tr><td>/api/Admin/HadithBooks/{id}/hadiths</td><td>GET</td><td></td></tr><tr><td>/api/Admin/HadithBooks/{id}/random</td><td>GET</td><td></td></tr><tr><td>/api/Admin/HadithBooks/{id}/stats</td><td>GET</td><td></td></tr><tr><td>/api/Admin/HadithChapters/Create</td><td>POST</td><td></td></tr><tr><td>/api/Admin/HadithChapters/Delete/{id}</td><td>DELETE</td><td></td></tr><tr><td>/api/Admin/HadithChapters/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Admin/HadithChapters/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/HadithChapters/Search</td><td>GET</td><td></td></tr><tr><td>/api/Admin/HadithChapters/ToggleStatus/{id}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/HadithChapters/Update/{id}</td><td>PUT</td><td></td></tr><tr><td>/api/Admin/HadithChapters/book/{bookId}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/HadithChapters/{id}/hadiths</td><td>GET</td><td></td></tr><tr><td>/api/Admin/HadithChapters/{id}/random</td><td>GET</td><td></td></tr><tr><td>/api/Admin/HadithChapters/{id}/stats</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Hadiths/Create</td><td>POST</td><td></td></tr><tr><td>/api/Admin/Hadiths/Delete/{id}</td><td>DELETE</td><td></td></tr><tr><td>/api/Admin/Hadiths/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Hadiths/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Hadiths/Search</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Hadiths/ToggleStatus/{id}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/Hadiths/Update/{id}</td><td>PUT</td><td></td></tr><tr><td>/api/Admin/Hadiths/book/{bookId}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Hadiths/chapter/{chapterId}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Hadiths/englishNarrator/{name}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Hadiths/random</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Hadiths/stats</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Lesson/Create</td><td>POST</td><td></td></tr><tr><td>/api/Admin/Lesson/Delete/{id}</td><td>DELETE</td><td></td></tr><tr><td>/api/Admin/Lesson/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Lesson/GetByCourseId/{courseId}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Lesson/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Lesson/ToggleStatus/{id}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/Lesson/Update/{id}</td><td>PUT</td><td></td></tr><tr><td>/api/Admin/Quiz/Create</td><td>POST</td><td></td></tr><tr><td>/api/Admin/Quiz/Delete/{id}</td><td>DELETE</td><td></td></tr><tr><td>/api/Admin/Quiz/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Quiz/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Quiz/ToggleStatus/{id}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/Quiz/Update/{id}</td><td>PUT</td><td></td></tr><tr><td>/api/Admin/Quran/SearchGeneric</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Quran/search</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Quran/surahs</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Quran/surahs/{number}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/ThikrCategory/Create</td><td>POST</td><td></td></tr><tr><td>/api/Admin/ThikrCategory/Delete/{id}</td><td>DELETE</td><td></td></tr><tr><td>/api/Admin/ThikrCategory/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Admin/ThikrCategory/GetAudioUrls</td><td>GET</td><td></td></tr><tr><td>/api/Admin/ThikrCategory/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/ThikrCategory/Search</td><td>GET</td><td></td></tr><tr><td>/api/Admin/ThikrCategory/ToggleStatus/{id}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/ThikrCategory/Update/{id}</td><td>PUT</td><td></td></tr><tr><td>/api/Admin/ThikrItem/Create</td><td>POST</td><td></td></tr><tr><td>/api/Admin/ThikrItem/Delete/{id}</td><td>DELETE</td><td></td></tr><tr><td>/api/Admin/ThikrItem/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Admin/ThikrItem/GetByCategoryId/{categoryId}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/ThikrItem/GetByCount</td><td>GET</td><td></td></tr><tr><td>/api/Admin/ThikrItem/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/ThikrItem/Search</td><td>GET</td><td></td></tr><tr><td>/api/Admin/ThikrItem/ToggleStatus/{id}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/ThikrItem/Update/{id}</td><td>PUT</td><td></td></tr><tr><td>/api/Admin/User/BlockUser/{userId}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/User/ChangeEmail</td><td>PUT</td><td></td></tr><tr><td>/api/Admin/User/ChangePassword</td><td>PUT</td><td></td></tr><tr><td>/api/Admin/User/ChangeRole/{userId}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/User/ConfirmNewEmail</td><td>GET</td><td></td></tr><tr><td>/api/Admin/User/GetAllUsers</td><td>GET</td><td></td></tr><tr><td>/api/Admin/User/GetMyProfile</td><td>GET</td><td></td></tr><tr><td>/api/Admin/User/GetUserById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Admin/User/IsBlockedUser/{userId}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/User/UnBlockUser/{userId}</td><td>PATCH</td><td></td></tr><tr><td>/api/Admin/User/UpdateMyProfile</td><td>PUT</td><td></td></tr><tr><td>/api/Admin/UserProgress/add</td><td>POST</td><td></td></tr><tr><td>/api/Admin/UserProgress/me</td><td>GET</td><td></td></tr><tr><td>/api/Identity/Authentication/ConfirmEmail</td><td>GET</td><td></td></tr><tr><td>/api/Identity/Authentication/ForgotPassword</td><td>POST</td><td></td></tr><tr><td>/api/Identity/Authentication/Login</td><td>POST</td><td></td></tr><tr><td>/api/Identity/Authentication/Logout</td><td>POST</td><td></td></tr><tr><td>/api/Identity/Authentication/Refresh</td><td>POST</td><td></td></tr><tr><td>/api/Identity/Authentication/Register</td><td>POST</td><td></td></tr><tr><td>/api/Identity/Authentication/ResetPassword</td><td>POST</td><td></td></tr><tr><td>/api/Student/Category/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Student/Category/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Student/Course/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Student/Course/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithBooks/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithBooks/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithBooks/Search</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithBooks/{id}/chapters</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithBooks/{id}/hadiths</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithBooks/{id}/random</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithBooks/{id}/stats</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithChapters/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithChapters/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithChapters/Search</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithChapters/book/{bookId}</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithChapters/{id}/hadiths</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithChapters/{id}/random</td><td>GET</td><td></td></tr><tr><td>/api/Student/HadithChapters/{id}/stats</td><td>GET</td><td></td></tr><tr><td>/api/Student/Hadiths/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Student/Hadiths/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Student/Hadiths/Search</td><td>GET</td><td></td></tr><tr><td>/api/Student/Hadiths/book/{bookId}</td><td>GET</td><td></td></tr><tr><td>/api/Student/Hadiths/chapter/{chapterId}</td><td>GET</td><td></td></tr><tr><td>/api/Student/Hadiths/englishNarrator/{name}</td><td>GET</td><td></td></tr><tr><td>/api/Student/Hadiths/random</td><td>GET</td><td></td></tr><tr><td>/api/Student/Hadiths/stats</td><td>GET</td><td></td></tr><tr><td>/api/Student/Lesson/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Student/Lesson/GetByCourseId/{courseId}</td><td>GET</td><td></td></tr><tr><td>/api/Student/Lesson/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Student/Quiz/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Student/Quiz/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Student/Quran/SearchGeneric</td><td>GET</td><td></td></tr><tr><td>/api/Student/Quran/search</td><td>GET</td><td></td></tr><tr><td>/api/Student/Quran/surahs</td><td>GET</td><td></td></tr><tr><td>/api/Student/Quran/surahs/{number}</td><td>GET</td><td></td></tr><tr><td>/api/Student/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}</td><td>GET</td><td></td></tr><tr><td>/api/Student/ThikrCategory/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Student/ThikrCategory/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Student/ThikrCategory/Search</td><td>GET</td><td></td></tr><tr><td>/api/Student/ThikrItem/GetAll</td><td>GET</td><td></td></tr><tr><td>/api/Student/ThikrItem/GetByCategoryId/{categoryId}</td><td>GET</td><td></td></tr><tr><td>/api/Student/ThikrItem/GetByCount</td><td>GET</td><td></td></tr><tr><td>/api/Student/ThikrItem/GetById/{id}</td><td>GET</td><td></td></tr><tr><td>/api/Student/ThikrItem/Search</td><td>GET</td><td></td></tr><tr><td>/api/Student/User/ChangeEmail</td><td>PUT</td><td></td></tr><tr><td>/api/Student/User/ChangePassword</td><td>PUT</td><td></td></tr><tr><td>/api/Student/User/ConfirmNewEmail</td><td>GET</td><td></td></tr><tr><td>/api/Student/User/GetMyProfile</td><td>GET</td><td></td></tr><tr><td>/api/Student/User/UpdateMyProfile</td><td>PUT</td><td></td></tr><tr><td>/api/Student/UserProgress/add</td><td>POST</td><td></td></tr><tr><td>/api/Student/UserProgress/me</td><td>GET</td><td></td></tr></table>
+### 📋 API Endpoint Summary
+*Click on a path to jump to its details.*
 
+| Path | Method | Summary |
+| :--- | :--- | :--- |
+| [/api/Student/Course/GetAll](#apistudentcoursegetall) | `GET` | Get all courses |
+| [/api/Student/Course/GetById/{id}](#apistudentcoursegetbyidid) | `GET` | Get course by ID |
+| [/api/Student/Lesson/GetAll](#apistudentlessongetall) | `GET` | Get all lessons |
+| [/api/Student/Lesson/GetById/{id}](#apistudentlessongetbyidid) | `GET` | Get lesson by ID |
+| [/api/Student/Lesson/GetByCourseId/{courseId}](#apistudentlessongetbycourseidcourseid) | `GET` | Get lessons by course |
+| [/api/Student/Quiz/GetAll](#apistudentquizgetall) | `GET` | Get all quizzes |
+| [/api/Student/Quiz/GetById/{id}](#apistudentquizgetbyidid) | `GET` | Get quiz by ID |
+| [/api/Student/Quran/surahs](#apistudentquransurahs) | `GET` | Get all Surahs |
+| [/api/Student/Quran/surahs/{number}](#apistudentquransurahsnumber) | `GET` | Get Surah by number |
+| [/api/Student/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}](#apistudentquransurahssurahnumberayahsayahnumber) | `GET` | Get Ayah |
+| [/api/Student/Quran/search](#apistudentquransearch) | `GET` | Search Quran |
+| [/api/Student/Quran/SearchGeneric](#apistudentquransearchgeneric) | `GET` | Generic search |
+| [/api/Student/User/GetMyProfile](#apistudentusergetmyprofile) | `GET` | Get profile |
+| [/api/Student/User/UpdateMyProfile](#apistudentuserupdatemyprofile) | `PUT` | Update profile |
+| [/api/Student/User/ChangePassword](#apistudentuserchangepassword) | `PUT` | Change password |
+| [/api/Student/User/ChangeEmail](#apistudentuserchangeemail) | `PUT` | Change email |
+| [/api/Student/User/ConfirmNewEmail](#apistudentuserconfirmnewemail) | `GET` | Confirm email |
+| [/api/Student/UserProgress/add](#apistudentuserprogressadd) | `POST` | Add progress |
+| [/api/Student/UserProgress/me](#apistudentuserprogressme) | `GET` | Get my progress |
+| [/api/Student/ThikrCategory/GetAll](#apistudentthikrcategorygetall) | `GET` | Get all Thikr |
+| [/api/Student/ThikrCategory/GetById/{id}](#apistudentthikrcategorygetbyidid) | `GET` | Get Thikr by ID |
+| [/api/Student/ThikrCategory/Search](#apistudentthikrcategorysearch) | `GET` | Search Thikr |
+| [/api/Admin/Course/Create](#apiadmincoursecreate) | `POST` | Create course |
+| [/api/Admin/Course/Update/{id}](#apiadmincourseupdateid) | `PUT` | Update course |
+| [/api/Admin/Course/ToggleStatus/{id}](#apiadmincoursetogglestatusid) | `PATCH` | Toggle status |
+| [/api/Admin/Course/Delete/{id}](#apiadmincoursedeleteid) | `DELETE` | Delete course |
 
+---
 
+## Endpoint Details
+
+### /api/Student/Course/GetAll
+#### GET
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Student/Course/GetById/{id}
+#### GET
+##### Parameters
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | | Yes | integer |
+
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Student/Lesson/GetAll
+#### GET
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Student/Lesson/GetById/{id}
+#### GET
+##### Parameters
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | | Yes | integer |
+
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Student/Lesson/GetByCourseId/{courseId}
+#### GET
+##### Parameters
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| courseId | path | | Yes | integer |
+
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Student/Quiz/GetAll
+#### GET
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Student/Quiz/GetById/{id}
+#### GET
+##### Parameters
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | | Yes | integer |
+
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Student/Quran/surahs
+#### GET
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Student/Quran/surahs/{number}
+#### GET
+##### Parameters
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| number | path | | Yes | integer |
+
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Student/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}
+#### GET
+##### Parameters
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| surahNumber | path | | Yes | integer |
+| ayahNumber | path | | Yes | integer |
+
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Student/Quran/search
+#### GET
+##### Parameters
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| q | query | | No | string |
+| limit | query | | No | integer |
+
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Student/Quran/SearchGeneric
+#### GET
+##### Parameters
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| query | query | | No | string |
+
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Admin/Course/Create
+#### POST
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Admin/Course/Update/{id}
+#### PUT
+##### Parameters
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | | Yes | integer |
+
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+---
+
+### /api/Admin/Course/ToggleStatus/{id}
+#### PATCH
+##### Parameters
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | | Yes | integer |
+
+##### Responses
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+
+<br>
+<br>
+<br>
 
 ### /api/Student/Course/GetAll
 
