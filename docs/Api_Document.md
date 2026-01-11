@@ -7,6 +7,8 @@
 
 <br>
 
+### 📋 API Endpoints Reference
+
 | Path | Method | Summary |
 | :--- | :--- | :--- |
 | [/api/Student/Course/GetAll](#apistudentcoursegetall) | `GET` | Get all student courses |
