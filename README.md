@@ -5,8 +5,10 @@ A clean, scalable **3-layer architecture** (DAL → BLL → PL) with generic CRU
 ![.NET](https://img.shields.io/badge/.NET-9.0-blue)
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
----
 
+<br>
+<hr>
+<br>
 
 ## 📌 Table of Contents
 - [🚀 Overview](#-overview)
@@ -41,11 +43,11 @@ A clean, scalable **3-layer architecture** (DAL → BLL → PL) with generic CRU
 
 
 
+
 <br>
+<hr>
 <br>
----
-<br>
-<br>
+
 
 
 
@@ -76,24 +78,18 @@ The **Nibras API** powers a modern learning platform with:
 - File uploading module
 - And other features...
 
-
-
-
+<br>
 
 ## 🧩 Key Features
-
 ✨ Secure JWT authentication
 ✨ Generic CRUD for all entities
 ✨ Track student progress
 ✨ Upload files
 ✨ Clean and scalable 3-layer architecture
 
-
-
-
+<br>
 
 ## 🚀 Tech Stack
-
 * ASP.NET Core 9
 * Entity Framework Core
 * SQL Server
@@ -101,28 +97,20 @@ The **Nibras API** powers a modern learning platform with:
 * Dependency Injection
 * Swagger / OpenAPI
 
-
-
-
+<br>
 
 ## 📐 Architecture
-
 This project follows a **3-Layer Architecture**:
-
 ```
 PL  → Controllers / API
 BLL → Business Logic & Services
 DAL → Data Access (EF Core + Repositories)
 ```
-
 Each layer is **fully isolated** and communicates via **interfaces only**.
 
-
-
-
+<br>
 
 ## 📁 Project Structure
-
 ```plaintext
 Nibras.API
 │
@@ -176,11 +164,11 @@ Nibras.API
 
 
 
+
 <br>
+<hr>
 <br>
----
-<br>
-<br>
+
 
 
 
@@ -214,11 +202,7 @@ Revoked tokens stored in-memory
 Custom middleware blocks revoked tokens  
 Token validation handled via JWT Bearer middleware  
 
-
-
-
-
-
+<br>
 
 ## 📦 API Modules
 
@@ -233,10 +217,7 @@ Token validation handled via JWT Bearer middleware
 * User
 * UserProgress
 
-
-
-
-
+<br>
 
 ## ❌ Error Handling
 
@@ -270,9 +251,7 @@ Token validation handled via JWT Bearer middleware
 
 
 <br>
-<br>
----
-<br>
+<hr>
 <br>
 
 
@@ -314,10 +293,7 @@ dotnet run
 ### API Access
 https://localhost:{port}/swagger
 
-
-
-
-
+<br>
 
 ## 🔐 Environment Variables
 
@@ -348,9 +324,7 @@ Configure the following in `appsettings.json` or environment variables:
 
 
 <br>
-<br>
----
-<br>
+<hr>
 <br>
 
 
@@ -375,10 +349,7 @@ Configure the following in `appsettings.json` or environment variables:
 ## 📘 API Documentation
 [To see the api document of this project click here](./docs/Api_Document.md)
 
-
-
-
-
+<br>
 
 ## 📞 Contact
 
