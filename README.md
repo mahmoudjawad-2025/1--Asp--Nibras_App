@@ -24,23 +24,28 @@ A clean, scalable **3-layer architecture** (DAL → BLL → PL) with generic CRU
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<br>
+<br>
 
 
 
@@ -151,30 +156,31 @@ Nibras.API
 
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<br>
+<br>
 
 
 
@@ -244,26 +250,30 @@ Token validation handled via JWT Bearer middleware
 }
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<br>
+<br>
 
 
 
@@ -318,24 +328,30 @@ Configure the following in `appsettings.json` or environment variables:
 | ConnectionStrings:DefaultConnection  | SQL Server connection string |
 | jwtOptions:SecretKey                 | JWT signing secret key       |
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<br>
+<br>
 
 
 
