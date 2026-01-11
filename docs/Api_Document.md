@@ -1,4377 +1,2692 @@
-## Access
-
-## Methods
-
-\[ Jump to [Models](#__Models) \]
-
-### Table of Contents
-
-#### [Authentication](#Authentication)
-
-*   [`get /api/Identity/Authentication/ConfirmEmail`](#apiIdentityAuthenticationConfirmEmailGet)
-*   [`post /api/Identity/Authentication/ForgotPassword`](#apiIdentityAuthenticationForgotPasswordPost)
-*   [`post /api/Identity/Authentication/Login`](#apiIdentityAuthenticationLoginPost)
-*   [`post /api/Identity/Authentication/Logout`](#apiIdentityAuthenticationLogoutPost)
-*   [`post /api/Identity/Authentication/Refresh`](#apiIdentityAuthenticationRefreshPost)
-*   [`post /api/Identity/Authentication/Register`](#apiIdentityAuthenticationRegisterPost)
-*   [`post /api/Identity/Authentication/ResetPassword`](#apiIdentityAuthenticationResetPasswordPost)
-
-#### [Category](#Category)
-
-*   [`post /api/Admin/Category/Create`](#apiAdminCategoryCreatePost)
-*   [`delete /api/Admin/Category/Delete/{id}`](#apiAdminCategoryDeleteIdDelete)
-*   [`get /api/Admin/Category/GetAll`](#apiAdminCategoryGetAllGet)
-*   [`get /api/Admin/Category/GetById/{id}`](#apiAdminCategoryGetByIdIdGet)
-*   [`patch /api/Admin/Category/ToggleStatus/{id}`](#apiAdminCategoryToggleStatusIdPatch)
-*   [`patch /api/Admin/Category/Update/{id}`](#apiAdminCategoryUpdateIdPatch)
-*   [`get /api/Student/Category/GetAll`](#apiStudentCategoryGetAllGet)
-*   [`get /api/Student/Category/GetById/{id}`](#apiStudentCategoryGetByIdIdGet)
-
-#### [Course](#Course)
-
-*   [`post /api/Admin/Course/Create`](#apiAdminCourseCreatePost)
-*   [`delete /api/Admin/Course/Delete/{id}`](#apiAdminCourseDeleteIdDelete)
-*   [`get /api/Admin/Course/GetAll`](#apiAdminCourseGetAllGet)
-*   [`get /api/Admin/Course/GetById/{id}`](#apiAdminCourseGetByIdIdGet)
-*   [`patch /api/Admin/Course/ToggleStatus/{id}`](#apiAdminCourseToggleStatusIdPatch)
-*   [`put /api/Admin/Course/Update/{id}`](#apiAdminCourseUpdateIdPut)
-*   [`get /api/Student/Course/GetAll`](#apiStudentCourseGetAllGet)
-*   [`get /api/Student/Course/GetById/{id}`](#apiStudentCourseGetByIdIdGet)
-
-#### [HadithBooks](#HadithBooks)
-
-*   [`post /api/Admin/HadithBooks/Create`](#apiAdminHadithBooksCreatePost)
-*   [`delete /api/Admin/HadithBooks/Delete/{id}`](#apiAdminHadithBooksDeleteIdDelete)
-*   [`get /api/Admin/HadithBooks/GetAll`](#apiAdminHadithBooksGetAllGet)
-*   [`get /api/Admin/HadithBooks/GetById/{id}`](#apiAdminHadithBooksGetByIdIdGet)
-*   [`get /api/Admin/HadithBooks/{id}/chapters`](#apiAdminHadithBooksIdChaptersGet)
-*   [`get /api/Admin/HadithBooks/{id}/hadiths`](#apiAdminHadithBooksIdHadithsGet)
-*   [`get /api/Admin/HadithBooks/{id}/random`](#apiAdminHadithBooksIdRandomGet)
-*   [`get /api/Admin/HadithBooks/{id}/stats`](#apiAdminHadithBooksIdStatsGet)
-*   [`get /api/Admin/HadithBooks/Search`](#apiAdminHadithBooksSearchGet)
-*   [`patch /api/Admin/HadithBooks/ToggleStatus/{id}`](#apiAdminHadithBooksToggleStatusIdPatch)
-*   [`put /api/Admin/HadithBooks/Update/{id}`](#apiAdminHadithBooksUpdateIdPut)
-*   [`get /api/Student/HadithBooks/GetAll`](#apiStudentHadithBooksGetAllGet)
-*   [`get /api/Student/HadithBooks/GetById/{id}`](#apiStudentHadithBooksGetByIdIdGet)
-*   [`get /api/Student/HadithBooks/{id}/chapters`](#apiStudentHadithBooksIdChaptersGet)
-*   [`get /api/Student/HadithBooks/{id}/hadiths`](#apiStudentHadithBooksIdHadithsGet)
-*   [`get /api/Student/HadithBooks/{id}/random`](#apiStudentHadithBooksIdRandomGet)
-*   [`get /api/Student/HadithBooks/{id}/stats`](#apiStudentHadithBooksIdStatsGet)
-*   [`get /api/Student/HadithBooks/Search`](#apiStudentHadithBooksSearchGet)
-
-#### [HadithChapters](#HadithChapters)
-
-*   [`get /api/Admin/HadithChapters/book/{bookId}`](#apiAdminHadithChaptersBookBookIdGet)
-*   [`post /api/Admin/HadithChapters/Create`](#apiAdminHadithChaptersCreatePost)
-*   [`delete /api/Admin/HadithChapters/Delete/{id}`](#apiAdminHadithChaptersDeleteIdDelete)
-*   [`get /api/Admin/HadithChapters/GetAll`](#apiAdminHadithChaptersGetAllGet)
-*   [`get /api/Admin/HadithChapters/GetById/{id}`](#apiAdminHadithChaptersGetByIdIdGet)
-*   [`get /api/Admin/HadithChapters/{id}/hadiths`](#apiAdminHadithChaptersIdHadithsGet)
-*   [`get /api/Admin/HadithChapters/{id}/random`](#apiAdminHadithChaptersIdRandomGet)
-*   [`get /api/Admin/HadithChapters/{id}/stats`](#apiAdminHadithChaptersIdStatsGet)
-*   [`get /api/Admin/HadithChapters/Search`](#apiAdminHadithChaptersSearchGet)
-*   [`patch /api/Admin/HadithChapters/ToggleStatus/{id}`](#apiAdminHadithChaptersToggleStatusIdPatch)
-*   [`put /api/Admin/HadithChapters/Update/{id}`](#apiAdminHadithChaptersUpdateIdPut)
-*   [`get /api/Student/HadithChapters/book/{bookId}`](#apiStudentHadithChaptersBookBookIdGet)
-*   [`get /api/Student/HadithChapters/GetAll`](#apiStudentHadithChaptersGetAllGet)
-*   [`get /api/Student/HadithChapters/GetById/{id}`](#apiStudentHadithChaptersGetByIdIdGet)
-*   [`get /api/Student/HadithChapters/{id}/hadiths`](#apiStudentHadithChaptersIdHadithsGet)
-*   [`get /api/Student/HadithChapters/{id}/random`](#apiStudentHadithChaptersIdRandomGet)
-*   [`get /api/Student/HadithChapters/{id}/stats`](#apiStudentHadithChaptersIdStatsGet)
-*   [`get /api/Student/HadithChapters/Search`](#apiStudentHadithChaptersSearchGet)
-
-#### [Hadiths](#Hadiths)
-
-*   [`get /api/Admin/Hadiths/book/{bookId}`](#apiAdminHadithsBookBookIdGet)
-*   [`get /api/Admin/Hadiths/chapter/{chapterId}`](#apiAdminHadithsChapterChapterIdGet)
-*   [`post /api/Admin/Hadiths/Create`](#apiAdminHadithsCreatePost)
-*   [`delete /api/Admin/Hadiths/Delete/{id}`](#apiAdminHadithsDeleteIdDelete)
-*   [`get /api/Admin/Hadiths/englishNarrator/{name}`](#apiAdminHadithsEnglishNarratorNameGet)
-*   [`get /api/Admin/Hadiths/GetAll`](#apiAdminHadithsGetAllGet)
-*   [`get /api/Admin/Hadiths/GetById/{id}`](#apiAdminHadithsGetByIdIdGet)
-*   [`get /api/Admin/Hadiths/random`](#apiAdminHadithsRandomGet)
-*   [`get /api/Admin/Hadiths/Search`](#apiAdminHadithsSearchGet)
-*   [`get /api/Admin/Hadiths/stats`](#apiAdminHadithsStatsGet)
-*   [`patch /api/Admin/Hadiths/ToggleStatus/{id}`](#apiAdminHadithsToggleStatusIdPatch)
-*   [`put /api/Admin/Hadiths/Update/{id}`](#apiAdminHadithsUpdateIdPut)
-*   [`get /api/Student/Hadiths/book/{bookId}`](#apiStudentHadithsBookBookIdGet)
-*   [`get /api/Student/Hadiths/chapter/{chapterId}`](#apiStudentHadithsChapterChapterIdGet)
-*   [`get /api/Student/Hadiths/englishNarrator/{name}`](#apiStudentHadithsEnglishNarratorNameGet)
-*   [`get /api/Student/Hadiths/GetAll`](#apiStudentHadithsGetAllGet)
-*   [`get /api/Student/Hadiths/GetById/{id}`](#apiStudentHadithsGetByIdIdGet)
-*   [`get /api/Student/Hadiths/random`](#apiStudentHadithsRandomGet)
-*   [`get /api/Student/Hadiths/Search`](#apiStudentHadithsSearchGet)
-*   [`get /api/Student/Hadiths/stats`](#apiStudentHadithsStatsGet)
-
-#### [Lesson](#Lesson)
-
-*   [`post /api/Admin/Lesson/Create`](#apiAdminLessonCreatePost)
-*   [`delete /api/Admin/Lesson/Delete/{id}`](#apiAdminLessonDeleteIdDelete)
-*   [`get /api/Admin/Lesson/GetAll`](#apiAdminLessonGetAllGet)
-*   [`get /api/Admin/Lesson/GetByCourseId/{courseId}`](#apiAdminLessonGetByCourseIdCourseIdGet)
-*   [`get /api/Admin/Lesson/GetById/{id}`](#apiAdminLessonGetByIdIdGet)
-*   [`patch /api/Admin/Lesson/ToggleStatus/{id}`](#apiAdminLessonToggleStatusIdPatch)
-*   [`put /api/Admin/Lesson/Update/{id}`](#apiAdminLessonUpdateIdPut)
-*   [`get /api/Student/Lesson/GetAll`](#apiStudentLessonGetAllGet)
-*   [`get /api/Student/Lesson/GetByCourseId/{courseId}`](#apiStudentLessonGetByCourseIdCourseIdGet)
-*   [`get /api/Student/Lesson/GetById/{id}`](#apiStudentLessonGetByIdIdGet)
-
-#### [Quiz](#Quiz)
-
-*   [`post /api/Admin/Quiz/Create`](#apiAdminQuizCreatePost)
-*   [`delete /api/Admin/Quiz/Delete/{id}`](#apiAdminQuizDeleteIdDelete)
-*   [`get /api/Admin/Quiz/GetAll`](#apiAdminQuizGetAllGet)
-*   [`get /api/Admin/Quiz/GetById/{id}`](#apiAdminQuizGetByIdIdGet)
-*   [`patch /api/Admin/Quiz/ToggleStatus/{id}`](#apiAdminQuizToggleStatusIdPatch)
-*   [`put /api/Admin/Quiz/Update/{id}`](#apiAdminQuizUpdateIdPut)
-*   [`get /api/Student/Quiz/GetAll`](#apiStudentQuizGetAllGet)
-*   [`get /api/Student/Quiz/GetById/{id}`](#apiStudentQuizGetByIdIdGet)
-
-#### [Quran](#Quran)
-
-*   [`get /api/Admin/Quran/SearchGeneric`](#apiAdminQuranSearchGenericGet)
-*   [`get /api/Admin/Quran/search`](#apiAdminQuranSearchGet)
-*   [`get /api/Admin/Quran/surahs`](#apiAdminQuranSurahsGet)
-*   [`get /api/Admin/Quran/surahs/{number}`](#apiAdminQuranSurahsNumberGet)
-*   [`get /api/Admin/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}`](#apiAdminQuranSurahsSurahNumberAyahsAyahNumberGet)
-*   [`get /api/Student/Quran/SearchGeneric`](#apiStudentQuranSearchGenericGet)
-*   [`get /api/Student/Quran/search`](#apiStudentQuranSearchGet)
-*   [`get /api/Student/Quran/surahs`](#apiStudentQuranSurahsGet)
-*   [`get /api/Student/Quran/surahs/{number}`](#apiStudentQuranSurahsNumberGet)
-*   [`get /api/Student/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}`](#apiStudentQuranSurahsSurahNumberAyahsAyahNumberGet)
-
-#### [ThikrCategory](#ThikrCategory)
-
-*   [`post /api/Admin/ThikrCategory/Create`](#apiAdminThikrCategoryCreatePost)
-*   [`delete /api/Admin/ThikrCategory/Delete/{id}`](#apiAdminThikrCategoryDeleteIdDelete)
-*   [`get /api/Admin/ThikrCategory/GetAll`](#apiAdminThikrCategoryGetAllGet)
-*   [`get /api/Admin/ThikrCategory/GetAudioUrls`](#apiAdminThikrCategoryGetAudioUrlsGet)
-*   [`get /api/Admin/ThikrCategory/GetById/{id}`](#apiAdminThikrCategoryGetByIdIdGet)
-*   [`get /api/Admin/ThikrCategory/Search`](#apiAdminThikrCategorySearchGet)
-*   [`patch /api/Admin/ThikrCategory/ToggleStatus/{id}`](#apiAdminThikrCategoryToggleStatusIdPatch)
-*   [`put /api/Admin/ThikrCategory/Update/{id}`](#apiAdminThikrCategoryUpdateIdPut)
-*   [`get /api/Student/ThikrCategory/GetAll`](#apiStudentThikrCategoryGetAllGet)
-*   [`get /api/Student/ThikrCategory/GetById/{id}`](#apiStudentThikrCategoryGetByIdIdGet)
-*   [`get /api/Student/ThikrCategory/Search`](#apiStudentThikrCategorySearchGet)
+openapi: 3.0.1
+info
+  title: PL | v1
+  version: 1.0.0
+servers
+
+**url**: https://localhost:7050
+
+
+**url**: http://localhost:5160
+
+
+
+paths
+/api/Student/Course/GetAll
+## get
+  ## tags
+    1. Course
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Course/GetById/{id}
+## get
+  ## tags
+    1. Course
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Lesson/GetAll
+## get
+  ## tags
+    1. Lesson
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Lesson/GetById/{id}
+## get
+  ## tags
+    1. Lesson
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Lesson/GetByCourseId/{courseId}
+## get
+  ## tags
+    1. Lesson
+  ## parameters
+    1.           **name**: courseId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Quiz/GetAll
+## get
+  ## tags
+    1. Quiz
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Quiz/GetById/{id}
+## get
+  ## tags
+    1. Quiz
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Quran/surahs
+## get
+  ## tags
+    1. Quran
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Quran/surahs/{number}
+## get
+  ## tags
+    1. Quran
+  ## parameters
+    1.           **name**: number
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}
+## get
+  ## tags
+    1. Quran
+  ## parameters
+    1.           **name**: surahNumber
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+    2.           **name**: ayahNumber
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Quran/search
+## get
+  ## tags
+    1. Quran
+  ## parameters
+    1.           **name**: q
+      **in**: query
+      ## schema
+        **type**: string
+    2.           **name**: limit
+      **in**: query
+      ## schema
+        **type**: integer
+        **format**: int32
+        **default**: 50
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Quran/SearchGeneric
+## get
+  ## tags
+    1. Quran
+  ## parameters
+    1.           **name**: query
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/User/GetMyProfile
+## get
+  ## tags
+    1. User
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/User/UpdateMyProfile
+## put
+  ## tags
+    1. User
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/UpdateProfileRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/UpdateProfileRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/UpdateProfileRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/User/ChangePassword
+## put
+  ## tags
+    1. User
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/ChangePasswordRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/ChangePasswordRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/ChangePasswordRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/User/ChangeEmail
+## put
+  ## tags
+    1. User
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/ChangeEmailRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/ChangeEmailRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/ChangeEmailRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/User/ConfirmNewEmail
+## get
+  ## tags
+    1. User
+  ## parameters
+    1.           **name**: userId
+      **in**: query
+      ## schema
+        **type**: string
+    2.           **name**: token
+      **in**: query
+      ## schema
+        **type**: string
+    3.           **name**: newEmail
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/UserProgress/add
+## post
+  ## tags
+    1. UserProgress
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/ProgressCreateRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/ProgressCreateRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/ProgressCreateRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/UserProgress/me
+## get
+  ## tags
+    1. UserProgress
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/ThikrCategory/GetAll
+## get
+  ## tags
+    1. ThikrCategory
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/ThikrCategory/GetById/{id}
+## get
+  ## tags
+    1. ThikrCategory
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/ThikrCategory/Search
+## get
+  ## tags
+    1. ThikrCategory
+  ## parameters
+    1.           **name**: query
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/ThikrItem/GetAll
+## get
+  ## tags
+    1. ThikrItem
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/ThikrItem/GetById/{id}
+## get
+  ## tags
+    1. ThikrItem
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/ThikrItem/GetByCategoryId/{categoryId}
+## get
+  ## tags
+    1. ThikrItem
+  ## parameters
+    1.           **name**: categoryId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/ThikrItem/Search
+## get
+  ## tags
+    1. ThikrItem
+  ## parameters
+    1.           **name**: query
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/ThikrItem/GetByCount
+## get
+  ## tags
+    1. ThikrItem
+  ## parameters
+    1.           **name**: minCount
+      **in**: query
+      ## schema
+        **type**: integer
+        **format**: int32
+    2.           **name**: maxCount
+      **in**: query
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithBooks/GetAll
+## get
+  ## tags
+    1. HadithBooks
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithBooks/GetById/{id}
+## get
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithBooks/Search
+## get
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: query
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithBooks/{id}/chapters
+## get
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithBooks/{id}/hadiths
+## get
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithBooks/{id}/random
+## get
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithBooks/{id}/stats
+## get
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithChapters/GetAll
+## get
+  ## tags
+    1. HadithChapters
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithChapters/GetById/{id}
+## get
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithChapters/book/{bookId}
+## get
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: bookId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithChapters/Search
+## get
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: query
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithChapters/{id}/hadiths
+## get
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithChapters/{id}/random
+## get
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/HadithChapters/{id}/stats
+## get
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Hadiths/GetAll
+## get
+  ## tags
+    1. Hadiths
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Hadiths/GetById/{id}
+## get
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Hadiths/chapter/{chapterId}
+## get
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: chapterId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Hadiths/book/{bookId}
+## get
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: bookId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Hadiths/Search
+## get
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: query
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Hadiths/englishNarrator/{name}
+## get
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: name
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Hadiths/random
+## get
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: bookId
+      **in**: query
+      ## schema
+        **type**: integer
+        **format**: int32
+        **default**: null
+    2.           **name**: chapterId
+      **in**: query
+      ## schema
+        **type**: integer
+        **format**: int32
+        **default**: null
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Hadiths/stats
+## get
+  ## tags
+    1. Hadiths
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Course/Create
+## post
+  ## tags
+    1. Course
+  ## requestBody
+    ## content
+      ## application/x-www-form-urlencoded
+        ## schema
+          **type**: object
+          ## properties
+            ## Title
+              **type**: string
+            ## Description
+              **type**: string
+            ## CategoryId
+              **type**: integer
+              **format**: int32
+            ## LessonIds
+              **type**: array
+              ## items
+                **type**: integer
+                **format**: int32
+            ## MainImage
+              **$ref**: #/components/schemas/IFormFile
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Course/Update/{id}
+## put
+  ## tags
+    1. Course
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## requestBody
+    ## content
+      ## application/x-www-form-urlencoded
+        ## schema
+          **type**: object
+          ## properties
+            ## Title
+              **type**: string
+            ## Description
+              **type**: string
+            ## CategoryId
+              **type**: integer
+              **format**: int32
+            ## LessonIds
+              **type**: array
+              ## items
+                **type**: integer
+                **format**: int32
+            ## MainImage
+              **$ref**: #/components/schemas/IFormFile
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Course/ToggleStatus/{id}
+## patch
+  ## tags
+    1. Course
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Course/Delete/{id}
+## delete
+  ## tags
+    1. Course
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Course/GetAll
+## get
+  ## tags
+    1. Course
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Course/GetById/{id}
+## get
+  ## tags
+    1. Course
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Lesson/Create
+## post
+  ## tags
+    1. Lesson
+  ## requestBody
+    ## content
+      ## application/x-www-form-urlencoded
+        ## schema
+          **type**: object
+          ## properties
+            ## Title
+              **type**: string
+            ## CourseId
+              **type**: integer
+              **format**: int32
+            ## ContentText
+              **type**: string
+            ## Files
+              **type**: array
+              ## items
+                **$ref**: #/components/schemas/IFormFile
+            ## FileTypes
+              **type**: array
+              ## items
+                **$ref**: #/components/schemas/FilesTypes
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Lesson/Update/{id}
+## put
+  ## tags
+    1. Lesson
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## requestBody
+    ## content
+      ## application/x-www-form-urlencoded
+        ## schema
+          **type**: object
+          ## properties
+            ## Title
+              **type**: string
+            ## CourseId
+              **type**: integer
+              **format**: int32
+            ## ContentText
+              **type**: string
+            ## Files
+              **type**: array
+              ## items
+                **$ref**: #/components/schemas/IFormFile
+            ## FileTypes
+              **type**: array
+              ## items
+                **$ref**: #/components/schemas/FilesTypes
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Lesson/Delete/{id}
+## delete
+  ## tags
+    1. Lesson
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Lesson/ToggleStatus/{id}
+## patch
+  ## tags
+    1. Lesson
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Lesson/GetAll
+## get
+  ## tags
+    1. Lesson
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Lesson/GetById/{id}
+## get
+  ## tags
+    1. Lesson
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Lesson/GetByCourseId/{courseId}
+## get
+  ## tags
+    1. Lesson
+  ## parameters
+    1.           **name**: courseId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Quiz/Create
+## post
+  ## tags
+    1. Quiz
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/QuizRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/QuizRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/QuizRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Quiz/Update/{id}
+## put
+  ## tags
+    1. Quiz
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/QuizRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/QuizRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/QuizRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Quiz/ToggleStatus/{id}
+## patch
+  ## tags
+    1. Quiz
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Quiz/Delete/{id}
+## delete
+  ## tags
+    1. Quiz
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Quiz/GetAll
+## get
+  ## tags
+    1. Quiz
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Quiz/GetById/{id}
+## get
+  ## tags
+    1. Quiz
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Quran/surahs
+## get
+  ## tags
+    1. Quran
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Quran/surahs/{number}
+## get
+  ## tags
+    1. Quran
+  ## parameters
+    1.           **name**: number
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}
+## get
+  ## tags
+    1. Quran
+  ## parameters
+    1.           **name**: surahNumber
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+    2.           **name**: ayahNumber
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Quran/search
+## get
+  ## tags
+    1. Quran
+  ## parameters
+    1.           **name**: q
+      **in**: query
+      ## schema
+        **type**: string
+    2.           **name**: limit
+      **in**: query
+      ## schema
+        **type**: integer
+        **format**: int32
+        **default**: 50
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Quran/SearchGeneric
+## get
+  ## tags
+    1. Quran
+  ## parameters
+    1.           **name**: query
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/User/GetAllUsers
+## get
+  ## tags
+    1. User
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/User/GetUserById/{id}
+## get
+  ## tags
+    1. User
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/User/BlockUser/{userId}
+## patch
+  ## tags
+    1. User
+  ## parameters
+    1.           **name**: userId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: string
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **type**: integer
+          **format**: int32
+      ## text/json
+        ## schema
+          **type**: integer
+          **format**: int32
+      ## application/*+json
+        ## schema
+          **type**: integer
+          **format**: int32
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/User/UnBlockUser/{userId}
+## patch
+  ## tags
+    1. User
+  ## parameters
+    1.           **name**: userId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/User/IsBlockedUser/{userId}
+## patch
+  ## tags
+    1. User
+  ## parameters
+    1.           **name**: userId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/User/ChangeRole/{userId}
+## patch
+  ## tags
+    1. User
+  ## parameters
+    1.           **name**: userId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: string
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/ChangeRoleRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/ChangeRoleRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/ChangeRoleRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/User/GetMyProfile
+## get
+  ## tags
+    1. User
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/User/UpdateMyProfile
+## put
+  ## tags
+    1. User
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/UpdateProfileRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/UpdateProfileRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/UpdateProfileRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/User/ChangePassword
+## put
+  ## tags
+    1. User
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/ChangePasswordRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/ChangePasswordRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/ChangePasswordRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/User/ChangeEmail
+## put
+  ## tags
+    1. User
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/ChangeEmailRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/ChangeEmailRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/ChangeEmailRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/User/ConfirmNewEmail
+## get
+  ## tags
+    1. User
+  ## parameters
+    1.           **name**: userId
+      **in**: query
+      ## schema
+        **type**: string
+    2.           **name**: token
+      **in**: query
+      ## schema
+        **type**: string
+    3.           **name**: newEmail
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/UserProgress/add
+## post
+  ## tags
+    1. UserProgress
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/ProgressCreateRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/ProgressCreateRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/ProgressCreateRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/UserProgress/me
+## get
+  ## tags
+    1. UserProgress
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrCategory/GetAudioUrls
+## get
+  ## tags
+    1. ThikrCategory
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrCategory/GetAll
+## get
+  ## tags
+    1. ThikrCategory
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrCategory/GetById/{id}
+## get
+  ## tags
+    1. ThikrCategory
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrCategory/Search
+## get
+  ## tags
+    1. ThikrCategory
+  ## parameters
+    1.           **name**: query
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrCategory/Create
+## post
+  ## tags
+    1. ThikrCategory
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/ThikrCategoryRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/ThikrCategoryRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/ThikrCategoryRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrCategory/Update/{id}
+## put
+  ## tags
+    1. ThikrCategory
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/ThikrCategoryRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/ThikrCategoryRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/ThikrCategoryRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrCategory/Delete/{id}
+## delete
+  ## tags
+    1. ThikrCategory
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrCategory/ToggleStatus/{id}
+## patch
+  ## tags
+    1. ThikrCategory
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrItem/GetAll
+## get
+  ## tags
+    1. ThikrItem
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrItem/GetById/{id}
+## get
+  ## tags
+    1. ThikrItem
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrItem/GetByCategoryId/{categoryId}
+## get
+  ## tags
+    1. ThikrItem
+  ## parameters
+    1.           **name**: categoryId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrItem/Search
+## get
+  ## tags
+    1. ThikrItem
+  ## parameters
+    1.           **name**: query
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrItem/GetByCount
+## get
+  ## tags
+    1. ThikrItem
+  ## parameters
+    1.           **name**: minCount
+      **in**: query
+      ## schema
+        **type**: integer
+        **format**: int32
+    2.           **name**: maxCount
+      **in**: query
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrItem/Create
+## post
+  ## tags
+    1. ThikrItem
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/ThikrItemRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/ThikrItemRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/ThikrItemRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrItem/Update/{id}
+## put
+  ## tags
+    1. ThikrItem
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/ThikrItemRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/ThikrItemRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/ThikrItemRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrItem/Delete/{id}
+## delete
+  ## tags
+    1. ThikrItem
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/ThikrItem/ToggleStatus/{id}
+## patch
+  ## tags
+    1. ThikrItem
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithBooks/GetAll
+## get
+  ## tags
+    1. HadithBooks
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithBooks/GetById/{id}
+## get
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithBooks/Search
+## get
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: query
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithBooks/{id}/chapters
+## get
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithBooks/{id}/hadiths
+## get
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithBooks/{id}/random
+## get
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithBooks/{id}/stats
+## get
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithBooks/Create
+## post
+  ## tags
+    1. HadithBooks
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/HadithBookRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/HadithBookRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/HadithBookRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithBooks/Update/{id}
+## put
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/HadithBookRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/HadithBookRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/HadithBookRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithBooks/Delete/{id}
+## delete
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithBooks/ToggleStatus/{id}
+## patch
+  ## tags
+    1. HadithBooks
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithChapters/GetAll
+## get
+  ## tags
+    1. HadithChapters
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithChapters/GetById/{id}
+## get
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithChapters/book/{bookId}
+## get
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: bookId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithChapters/Search
+## get
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: query
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithChapters/{id}/hadiths
+## get
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithChapters/{id}/random
+## get
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithChapters/{id}/stats
+## get
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithChapters/Create
+## post
+  ## tags
+    1. HadithChapters
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/HadithChapterRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/HadithChapterRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/HadithChapterRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithChapters/Update/{id}
+## put
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/HadithChapterRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/HadithChapterRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/HadithChapterRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithChapters/Delete/{id}
+## delete
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/HadithChapters/ToggleStatus/{id}
+## patch
+  ## tags
+    1. HadithChapters
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Hadiths/GetAll
+## get
+  ## tags
+    1. Hadiths
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Hadiths/GetById/{id}
+## get
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Hadiths/chapter/{chapterId}
+## get
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: chapterId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Hadiths/book/{bookId}
+## get
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: bookId
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Hadiths/Search
+## get
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: query
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Hadiths/englishNarrator/{name}
+## get
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: name
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Hadiths/random
+## get
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: bookId
+      **in**: query
+      ## schema
+        **type**: integer
+        **format**: int32
+        **default**: null
+    2.           **name**: chapterId
+      **in**: query
+      ## schema
+        **type**: integer
+        **format**: int32
+        **default**: null
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Hadiths/stats
+## get
+  ## tags
+    1. Hadiths
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Hadiths/Create
+## post
+  ## tags
+    1. Hadiths
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/HadithRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/HadithRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/HadithRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Hadiths/Update/{id}
+## put
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/HadithRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/HadithRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/HadithRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Hadiths/Delete/{id}
+## delete
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Hadiths/ToggleStatus/{id}
+## patch
+  ## tags
+    1. Hadiths
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Category/GetAll
+## get
+  ## tags
+    1. Category
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Student/Category/GetById/{id}
+## get
+  ## tags
+    1. Category
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Identity/Authentication/Refresh
+## post
+  ## tags
+    1. Authentication
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/RefreshTokenRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/RefreshTokenRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/RefreshTokenRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+      ## content
+        ## text/plain
+          ## schema
+            **$ref**: #/components/schemas/UserDto
+        ## application/json
+          ## schema
+            **$ref**: #/components/schemas/UserDto
+        ## text/json
+          ## schema
+            **$ref**: #/components/schemas/UserDto
+
+/api/Identity/Authentication/Register
+## post
+  ## tags
+    1. Authentication
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/RegisterRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/RegisterRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/RegisterRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+      ## content
+        ## text/plain
+          ## schema
+            **$ref**: #/components/schemas/UserDto
+        ## application/json
+          ## schema
+            **$ref**: #/components/schemas/UserDto
+        ## text/json
+          ## schema
+            **$ref**: #/components/schemas/UserDto
+
+/api/Identity/Authentication/Login
+## post
+  ## tags
+    1. Authentication
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/LoginRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/LoginRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/LoginRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+      ## content
+        ## text/plain
+          ## schema
+            **$ref**: #/components/schemas/UserDto
+        ## application/json
+          ## schema
+            **$ref**: #/components/schemas/UserDto
+        ## text/json
+          ## schema
+            **$ref**: #/components/schemas/UserDto
+
+/api/Identity/Authentication/Logout
+## post
+  ## tags
+    1. Authentication
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Identity/Authentication/ConfirmEmail
+## get
+  ## tags
+    1. Authentication
+  ## parameters
+    1.           **name**: token
+      **in**: query
+      ## schema
+        **type**: string
+    2.           **name**: userId
+      **in**: query
+      ## schema
+        **type**: string
+  ## responses
+    ## 200
+      **description**: OK
+      ## content
+        ## text/plain
+          ## schema
+            **type**: string
+        ## application/json
+          ## schema
+            **type**: string
+        ## text/json
+          ## schema
+            **type**: string
+
+/api/Identity/Authentication/ForgotPassword
+## post
+  ## tags
+    1. Authentication
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/ForgotPasswordRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/ForgotPasswordRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/ForgotPasswordRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+      ## content
+        ## text/plain
+          ## schema
+            **type**: string
+        ## application/json
+          ## schema
+            **type**: string
+        ## text/json
+          ## schema
+            **type**: string
+
+/api/Identity/Authentication/ResetPassword
+## post
+  ## tags
+    1. Authentication
+  ## requestBody
+    ## content
+      ## application/json
+        ## schema
+          **$ref**: #/components/schemas/ResetPasswordRequest
+      ## text/json
+        ## schema
+          **$ref**: #/components/schemas/ResetPasswordRequest
+      ## application/*+json
+        ## schema
+          **$ref**: #/components/schemas/ResetPasswordRequest
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+      ## content
+        ## text/plain
+          ## schema
+            **type**: string
+        ## application/json
+          ## schema
+            **type**: string
+        ## text/json
+          ## schema
+            **type**: string
+
+/api/Admin/Category/GetAll
+## get
+  ## tags
+    1. Category
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Category/GetById/{id}
+## get
+  ## tags
+    1. Category
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Category/Create
+## post
+  ## tags
+    1. Category
+  ## requestBody
+    ## content
+      ## application/x-www-form-urlencoded
+        ## schema
+          **type**: object
+          ## properties
+            ## Name
+              **type**: string
+            ## MainImage
+              **$ref**: #/components/schemas/IFormFile
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Category/Update/{id}
+## patch
+  ## tags
+    1. Category
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## requestBody
+    ## content
+      ## application/x-www-form-urlencoded
+        ## schema
+          **type**: object
+          ## properties
+            ## Name
+              **type**: string
+            ## MainImage
+              **$ref**: #/components/schemas/IFormFile
+    **required**: true
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Category/ToggleStatus/{id}
+## patch
+  ## tags
+    1. Category
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+/api/Admin/Category/Delete/{id}
+## delete
+  ## tags
+    1. Category
+  ## parameters
+    1.           **name**: id
+      **in**: path
+      **required**: true
+      ## schema
+        **type**: integer
+        **format**: int32
+  ## responses
+    ## 200
+      **description**: OK
+
+components
+schemas
+## ChangeEmailRequest
+  **type**: object
+  ## properties
+    ## newEmail
+      **type**: string
+## ChangePasswordRequest
+  **type**: object
+  ## properties
+    ## currentPassword
+      **type**: string
+    ## newPassword
+      **type**: string
+## ChangeRoleRequest
+  **type**: object
+  ## properties
+    ## roleName
+      **type**: string
+## FilesTypes
+  **type**: integer
+## ForgotPasswordRequest
+  **type**: object
+  ## properties
+    ## email
+      **type**: string
+## HadithBookRequest
+  **type**: object
+  ## properties
+    ## arabicTitle
+      **type**: string
+    ## arabicAuthor
+      **type**: string
+    ## arabicIntroduction
+      **type**: string
+    ## englishTitle
+      **type**: string
+    ## englishAuthor
+      **type**: string
+    ## englishIntroduction
+      **type**: string
+## HadithChapterRequest
+  **type**: object
+  ## properties
+    ## arabicTitle
+      **type**: string
+    ## englishTitle
+      **type**: string
+    ## hadithBookId
+      **type**: integer
+      **format**: int32
+## HadithRequest
+  **type**: object
+  ## properties
+    ## idInBook
+      **type**: integer
+      **format**: int32
+    ## arabicText
+      **type**: string
+    ## normalizedText
+      **type**: string
+    ## englishNarrator
+      **type**: string
+    ## englishText
+      **type**: string
+    ## hadithChapterId
+      **type**: integer
+      **format**: int32
+    ## hadithBookId
+      **type**: integer
+      **format**: int32
+## IFormFile
+  **type**: string
+  **format**: binary
+## LoginRequest
+  **type**: object
+  ## properties
+    ## email
+      **type**: string
+    ## password
+      **type**: string
+## ProgressCreateRequest
+  **type**: object
+  ## properties
+    ## type
+      **$ref**: #/components/schemas/ProgressType
+    ## relatedItemId
+      **type**: integer
+      **format**: int32
+      **nullable**: true
+    ## count
+      **type**: integer
+      **format**: int32
+## ProgressType
+  ## enum
+    1. Thikr
+    2. Hadith
+    3. Category
+## QuestionRequest
+  **type**: object
+  ## properties
+    ## text
+      **type**: string
+    ## correctAnswer
+      **type**: string
+    ## options
+      **type**: array
+      ## items
+        **type**: string
+## QuizRequest
+  **type**: object
+  ## properties
+    ## title
+      **type**: string
+    ## lessonId
+      **type**: integer
+      **format**: int32
+    ## questions
+      **type**: array
+      ## items
+        **$ref**: #/components/schemas/QuestionRequest
+## RefreshTokenRequest
+  **type**: object
+  ## properties
+    ## refreshToken
+      **type**: string
+## RegisterRequest
+  **type**: object
+  ## properties
+    ## fullName
+      **type**: string
+    ## userName
+      **type**: string
+    ## email
+      **type**: string
+    ## password
+      **type**: string
+    ## phoneNumber
+      **type**: string
+## ResetPasswordRequest
+  **type**: object
+  ## properties
+    ## newPassword
+      **type**: string
+    ## email
+      **type**: string
+    ## code
+      **type**: string
+## ThikrCategoryRequest
+  **type**: object
+  ## properties
+    ## title
+      **type**: string
+    ## normalizedText
+      **type**: string
+    ## audioUrl
+      **type**: string
+## ThikrItemRequest
+  **type**: object
+  ## properties
+    ## text
+      **type**: string
+    ## normalizedText
+      **type**: string
+    ## count
+      **type**: integer
+      **format**: int32
+    ## description
+      **type**: string
+    ## reference
+      **type**: string
+    ## thikrCategoryId
+      **type**: integer
+      **format**: int32
+## UpdateProfileRequest
+  **type**: object
+  ## properties
+    ## fullName
+      **type**: string
+    ## userName
+      **type**: string
+    ## phoneNumber
+      **type**: string
+    ## city
+      **type**: string
+    ## street
+      **type**: string
+## UserDto
+  **type**: object
+  ## properties
+    ## accessToken
+      **type**: string
+    ## refreshToken
+      **type**: string
+
+tags
+
+**name**: Course
+
+
+**name**: Lesson
+
+
+**name**: Quiz
+
+
+**name**: Quran
+
+
+**name**: User
+
+
+**name**: UserProgress
+
+
+**name**: ThikrCategory
+
+
+**name**: ThikrItem
+
+
+**name**: HadithBooks
+
+
+**name**: HadithChapters
+
+
+**name**: Hadiths
+
+
+**name**: Category
+
+
+**name**: Authentication
 
-#### [ThikrItem](#ThikrItem)
 
-*   [`post /api/Admin/ThikrItem/Create`](#apiAdminThikrItemCreatePost)
-*   [`delete /api/Admin/ThikrItem/Delete/{id}`](#apiAdminThikrItemDeleteIdDelete)
-*   [`get /api/Admin/ThikrItem/GetAll`](#apiAdminThikrItemGetAllGet)
-*   [`get /api/Admin/ThikrItem/GetByCategoryId/{categoryId}`](#apiAdminThikrItemGetByCategoryIdCategoryIdGet)
-*   [`get /api/Admin/ThikrItem/GetByCount`](#apiAdminThikrItemGetByCountGet)
-*   [`get /api/Admin/ThikrItem/GetById/{id}`](#apiAdminThikrItemGetByIdIdGet)
-*   [`get /api/Admin/ThikrItem/Search`](#apiAdminThikrItemSearchGet)
-*   [`patch /api/Admin/ThikrItem/ToggleStatus/{id}`](#apiAdminThikrItemToggleStatusIdPatch)
-*   [`put /api/Admin/ThikrItem/Update/{id}`](#apiAdminThikrItemUpdateIdPut)
-*   [`get /api/Student/ThikrItem/GetAll`](#apiStudentThikrItemGetAllGet)
-*   [`get /api/Student/ThikrItem/GetByCategoryId/{categoryId}`](#apiStudentThikrItemGetByCategoryIdCategoryIdGet)
-*   [`get /api/Student/ThikrItem/GetByCount`](#apiStudentThikrItemGetByCountGet)
-*   [`get /api/Student/ThikrItem/GetById/{id}`](#apiStudentThikrItemGetByIdIdGet)
-*   [`get /api/Student/ThikrItem/Search`](#apiStudentThikrItemSearchGet)
 
-#### [User](#User)
-
-*   [`patch /api/Admin/User/BlockUser/{userId}`](#apiAdminUserBlockUserUserIdPatch)
-*   [`put /api/Admin/User/ChangeEmail`](#apiAdminUserChangeEmailPut)
-*   [`put /api/Admin/User/ChangePassword`](#apiAdminUserChangePasswordPut)
-*   [`patch /api/Admin/User/ChangeRole/{userId}`](#apiAdminUserChangeRoleUserIdPatch)
-*   [`get /api/Admin/User/ConfirmNewEmail`](#apiAdminUserConfirmNewEmailGet)
-*   [`get /api/Admin/User/GetAllUsers`](#apiAdminUserGetAllUsersGet)
-*   [`get /api/Admin/User/GetMyProfile`](#apiAdminUserGetMyProfileGet)
-*   [`get /api/Admin/User/GetUserById/{id}`](#apiAdminUserGetUserByIdIdGet)
-*   [`patch /api/Admin/User/IsBlockedUser/{userId}`](#apiAdminUserIsBlockedUserUserIdPatch)
-*   [`patch /api/Admin/User/UnBlockUser/{userId}`](#apiAdminUserUnBlockUserUserIdPatch)
-*   [`put /api/Admin/User/UpdateMyProfile`](#apiAdminUserUpdateMyProfilePut)
-*   [`put /api/Student/User/ChangeEmail`](#apiStudentUserChangeEmailPut)
-*   [`put /api/Student/User/ChangePassword`](#apiStudentUserChangePasswordPut)
-*   [`get /api/Student/User/ConfirmNewEmail`](#apiStudentUserConfirmNewEmailGet)
-*   [`get /api/Student/User/GetMyProfile`](#apiStudentUserGetMyProfileGet)
-*   [`put /api/Student/User/UpdateMyProfile`](#apiStudentUserUpdateMyProfilePut)
-
-#### [UserProgress](#UserProgress)
-
-*   [`post /api/Admin/UserProgress/add`](#apiAdminUserProgressAddPost)
-*   [`get /api/Admin/UserProgress/me`](#apiAdminUserProgressMeGet)
-*   [`post /api/Student/UserProgress/add`](#apiStudentUserProgressAddPost)
-*   [`get /api/Student/UserProgress/me`](#apiStudentUserProgressMeGet)
-
-# Authentication
-
-[Up](#__Methods)
-
-```
-get /api/Identity/Authentication/ConfirmEmail
-```
-
-(apiIdentityAuthenticationConfirmEmailGet)
-
-### Query parameters
-
-token (optional)
-
-Query Parameter —
-
-userId (optional)
-
-Query Parameter —
-
-### Return type
-
-String
-
-### Example data
-
-Content-Type: application/json
-
-```
-""
-```
-
-### Produces
-
-This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
-
-*   `text/plain`
-*   `application/json`
-*   `text/json`
-
-### Responses
-
-#### 200
-
-OK [String](#String)
-
-- - -
-
-[Up](#__Methods)
-
-```
-post /api/Identity/Authentication/ForgotPassword
-```
-
-(apiIdentityAuthenticationForgotPasswordPost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [ForgotPasswordRequest](#ForgotPasswordRequest) (required)
-
-Body Parameter —
-
-### Return type
-
-String
-
-### Example data
-
-Content-Type: application/json
-
-```
-""
-```
-
-### Produces
-
-This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
-
-*   `text/plain`
-*   `application/json`
-*   `text/json`
-
-### Responses
-
-#### 200
-
-OK [String](#String)
-
-- - -
-
-[Up](#__Methods)
-
-```
-post /api/Identity/Authentication/Login
-```
-
-(apiIdentityAuthenticationLoginPost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [LoginRequest](#LoginRequest) (required)
-
-Body Parameter —
-
-### Return type
-
-[UserDto](#UserDto)
-
-### Example data
-
-Content-Type: application/json
-
-```
-{
-  "accessToken" : "accessToken",
-  "refreshToken" : "refreshToken"
-}
-```
-
-### Produces
-
-This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
-
-*   `text/plain`
-*   `application/json`
-*   `text/json`
-
-### Responses
-
-#### 200
-
-OK [UserDto](#UserDto)
-
-- - -
-
-[Up](#__Methods)
-
-```
-post /api/Identity/Authentication/Logout
-```
-
-(apiIdentityAuthenticationLogoutPost)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-post /api/Identity/Authentication/Refresh
-```
-
-(apiIdentityAuthenticationRefreshPost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [RefreshTokenRequest](#RefreshTokenRequest) (required)
-
-Body Parameter —
-
-### Return type
-
-[UserDto](#UserDto)
-
-### Example data
-
-Content-Type: application/json
-
-```
-{
-  "accessToken" : "accessToken",
-  "refreshToken" : "refreshToken"
-}
-```
-
-### Produces
-
-This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
-
-*   `text/plain`
-*   `application/json`
-*   `text/json`
-
-### Responses
-
-#### 200
-
-OK [UserDto](#UserDto)
-
-- - -
-
-[Up](#__Methods)
-
-```
-post /api/Identity/Authentication/Register
-```
-
-(apiIdentityAuthenticationRegisterPost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [RegisterRequest](#RegisterRequest) (required)
-
-Body Parameter —
-
-### Return type
-
-[UserDto](#UserDto)
-
-### Example data
-
-Content-Type: application/json
-
-```
-{
-  "accessToken" : "accessToken",
-  "refreshToken" : "refreshToken"
-}
-```
-
-### Produces
-
-This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
-
-*   `text/plain`
-*   `application/json`
-*   `text/json`
-
-### Responses
-
-#### 200
-
-OK [UserDto](#UserDto)
-
-- - -
-
-[Up](#__Methods)
-
-```
-post /api/Identity/Authentication/ResetPassword
-```
-
-(apiIdentityAuthenticationResetPasswordPost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [ResetPasswordRequest](#ResetPasswordRequest) (required)
-
-Body Parameter —
-
-### Return type
-
-String
-
-### Example data
-
-Content-Type: application/json
-
-```
-""
-```
-
-### Produces
-
-This API call produces the following media types according to the Accept request header; the media type will be conveyed by the Content-Type response header.
-
-*   `text/plain`
-*   `application/json`
-*   `text/json`
-
-### Responses
-
-#### 200
-
-OK [String](#String)
-
-- - -
-
-# Category
-
-[Up](#__Methods)
-
-```
-post /api/Admin/Category/Create
-```
-
-(apiAdminCategoryCreatePost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/x-www-form-urlencoded`
-
-### Form parameters
-
-Name (required)
-
-Form Parameter —
-
-MainImage (required)
-
-Form Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-delete /api/Admin/Category/Delete/{id}
-```
-
-(apiAdminCategoryDeleteIdDelete)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Category/GetAll
-```
-
-(apiAdminCategoryGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Category/GetById/{id}
-```
-
-(apiAdminCategoryGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/Category/ToggleStatus/{id}
-```
-
-(apiAdminCategoryToggleStatusIdPatch)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/Category/Update/{id}
-```
-
-(apiAdminCategoryUpdateIdPatch)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/x-www-form-urlencoded`
-
-### Form parameters
-
-Name (required)
-
-Form Parameter —
-
-MainImage (required)
-
-Form Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Category/GetAll
-```
-
-(apiStudentCategoryGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Category/GetById/{id}
-```
-
-(apiStudentCategoryGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-# Course
-
-[Up](#__Methods)
-
-```
-post /api/Admin/Course/Create
-```
-
-(apiAdminCourseCreatePost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/x-www-form-urlencoded`
-
-### Form parameters
-
-Title (required)
-
-Form Parameter —
-
-Description (required)
-
-Form Parameter —
-
-CategoryId (required)
-
-Form Parameter — format: int32
-
-LessonIds (required)
-
-Form Parameter — format: int32
-
-MainImage (required)
-
-Form Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-delete /api/Admin/Course/Delete/{id}
-```
-
-(apiAdminCourseDeleteIdDelete)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Course/GetAll
-```
-
-(apiAdminCourseGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Course/GetById/{id}
-```
-
-(apiAdminCourseGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/Course/ToggleStatus/{id}
-```
-
-(apiAdminCourseToggleStatusIdPatch)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Admin/Course/Update/{id}
-```
-
-(apiAdminCourseUpdateIdPut)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/x-www-form-urlencoded`
-
-### Form parameters
-
-Title (required)
-
-Form Parameter —
-
-Description (required)
-
-Form Parameter —
-
-CategoryId (required)
-
-Form Parameter — format: int32
-
-LessonIds (required)
-
-Form Parameter — format: int32
-
-MainImage (required)
-
-Form Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Course/GetAll
-```
-
-(apiStudentCourseGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Course/GetById/{id}
-```
-
-(apiStudentCourseGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-# HadithBooks
-
-[Up](#__Methods)
-
-```
-post /api/Admin/HadithBooks/Create
-```
-
-(apiAdminHadithBooksCreatePost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [HadithBookRequest](#HadithBookRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-delete /api/Admin/HadithBooks/Delete/{id}
-```
-
-(apiAdminHadithBooksDeleteIdDelete)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithBooks/GetAll
-```
-
-(apiAdminHadithBooksGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithBooks/GetById/{id}
-```
-
-(apiAdminHadithBooksGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithBooks/{id}/chapters
-```
-
-(apiAdminHadithBooksIdChaptersGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithBooks/{id}/hadiths
-```
-
-(apiAdminHadithBooksIdHadithsGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithBooks/{id}/random
-```
-
-(apiAdminHadithBooksIdRandomGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithBooks/{id}/stats
-```
-
-(apiAdminHadithBooksIdStatsGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithBooks/Search
-```
-
-(apiAdminHadithBooksSearchGet)
-
-### Query parameters
-
-query (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/HadithBooks/ToggleStatus/{id}
-```
-
-(apiAdminHadithBooksToggleStatusIdPatch)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Admin/HadithBooks/Update/{id}
-```
-
-(apiAdminHadithBooksUpdateIdPut)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [HadithBookRequest](#HadithBookRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithBooks/GetAll
-```
-
-(apiStudentHadithBooksGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithBooks/GetById/{id}
-```
-
-(apiStudentHadithBooksGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithBooks/{id}/chapters
-```
-
-(apiStudentHadithBooksIdChaptersGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithBooks/{id}/hadiths
-```
-
-(apiStudentHadithBooksIdHadithsGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithBooks/{id}/random
-```
-
-(apiStudentHadithBooksIdRandomGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithBooks/{id}/stats
-```
-
-(apiStudentHadithBooksIdStatsGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithBooks/Search
-```
-
-(apiStudentHadithBooksSearchGet)
-
-### Query parameters
-
-query (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-# HadithChapters
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithChapters/book/{bookId}
-```
-
-(apiAdminHadithChaptersBookBookIdGet)
-
-### Path parameters
-
-bookId (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-post /api/Admin/HadithChapters/Create
-```
-
-(apiAdminHadithChaptersCreatePost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [HadithChapterRequest](#HadithChapterRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-delete /api/Admin/HadithChapters/Delete/{id}
-```
-
-(apiAdminHadithChaptersDeleteIdDelete)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithChapters/GetAll
-```
-
-(apiAdminHadithChaptersGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithChapters/GetById/{id}
-```
-
-(apiAdminHadithChaptersGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithChapters/{id}/hadiths
-```
-
-(apiAdminHadithChaptersIdHadithsGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithChapters/{id}/random
-```
-
-(apiAdminHadithChaptersIdRandomGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithChapters/{id}/stats
-```
-
-(apiAdminHadithChaptersIdStatsGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/HadithChapters/Search
-```
-
-(apiAdminHadithChaptersSearchGet)
-
-### Query parameters
-
-query (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/HadithChapters/ToggleStatus/{id}
-```
-
-(apiAdminHadithChaptersToggleStatusIdPatch)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Admin/HadithChapters/Update/{id}
-```
-
-(apiAdminHadithChaptersUpdateIdPut)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [HadithChapterRequest](#HadithChapterRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithChapters/book/{bookId}
-```
-
-(apiStudentHadithChaptersBookBookIdGet)
-
-### Path parameters
-
-bookId (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithChapters/GetAll
-```
-
-(apiStudentHadithChaptersGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithChapters/GetById/{id}
-```
-
-(apiStudentHadithChaptersGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithChapters/{id}/hadiths
-```
-
-(apiStudentHadithChaptersIdHadithsGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithChapters/{id}/random
-```
-
-(apiStudentHadithChaptersIdRandomGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithChapters/{id}/stats
-```
-
-(apiStudentHadithChaptersIdStatsGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/HadithChapters/Search
-```
-
-(apiStudentHadithChaptersSearchGet)
-
-### Query parameters
-
-query (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-# Hadiths
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Hadiths/book/{bookId}
-```
-
-(apiAdminHadithsBookBookIdGet)
-
-### Path parameters
-
-bookId (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Hadiths/chapter/{chapterId}
-```
-
-(apiAdminHadithsChapterChapterIdGet)
-
-### Path parameters
-
-chapterId (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-post /api/Admin/Hadiths/Create
-```
-
-(apiAdminHadithsCreatePost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [HadithRequest](#HadithRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-delete /api/Admin/Hadiths/Delete/{id}
-```
-
-(apiAdminHadithsDeleteIdDelete)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Hadiths/englishNarrator/{name}
-```
-
-(apiAdminHadithsEnglishNarratorNameGet)
-
-### Path parameters
-
-name (required)
-
-Path Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Hadiths/GetAll
-```
-
-(apiAdminHadithsGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Hadiths/GetById/{id}
-```
-
-(apiAdminHadithsGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Hadiths/random
-```
-
-(apiAdminHadithsRandomGet)
-
-### Query parameters
-
-bookId (optional)
-
-Query Parameter — format: int32
-
-chapterId (optional)
-
-Query Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Hadiths/Search
-```
-
-(apiAdminHadithsSearchGet)
-
-### Query parameters
-
-query (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Hadiths/stats
-```
-
-(apiAdminHadithsStatsGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/Hadiths/ToggleStatus/{id}
-```
-
-(apiAdminHadithsToggleStatusIdPatch)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Admin/Hadiths/Update/{id}
-```
-
-(apiAdminHadithsUpdateIdPut)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [HadithRequest](#HadithRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Hadiths/book/{bookId}
-```
-
-(apiStudentHadithsBookBookIdGet)
-
-### Path parameters
-
-bookId (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Hadiths/chapter/{chapterId}
-```
-
-(apiStudentHadithsChapterChapterIdGet)
-
-### Path parameters
-
-chapterId (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Hadiths/englishNarrator/{name}
-```
-
-(apiStudentHadithsEnglishNarratorNameGet)
-
-### Path parameters
-
-name (required)
-
-Path Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Hadiths/GetAll
-```
-
-(apiStudentHadithsGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Hadiths/GetById/{id}
-```
-
-(apiStudentHadithsGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Hadiths/random
-```
-
-(apiStudentHadithsRandomGet)
-
-### Query parameters
-
-bookId (optional)
-
-Query Parameter — format: int32
-
-chapterId (optional)
-
-Query Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Hadiths/Search
-```
-
-(apiStudentHadithsSearchGet)
-
-### Query parameters
-
-query (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Hadiths/stats
-```
-
-(apiStudentHadithsStatsGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-# Lesson
-
-[Up](#__Methods)
-
-```
-post /api/Admin/Lesson/Create
-```
-
-(apiAdminLessonCreatePost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/x-www-form-urlencoded`
-
-### Form parameters
-
-Title (required)
-
-Form Parameter —
-
-CourseId (required)
-
-Form Parameter — format: int32
-
-ContentText (required)
-
-Form Parameter —
-
-Files (required)
-
-Form Parameter —
-
-FileTypes (required)
-
-Form Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-delete /api/Admin/Lesson/Delete/{id}
-```
-
-(apiAdminLessonDeleteIdDelete)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Lesson/GetAll
-```
-
-(apiAdminLessonGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Lesson/GetByCourseId/{courseId}
-```
-
-(apiAdminLessonGetByCourseIdCourseIdGet)
-
-### Path parameters
-
-courseId (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Lesson/GetById/{id}
-```
-
-(apiAdminLessonGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/Lesson/ToggleStatus/{id}
-```
-
-(apiAdminLessonToggleStatusIdPatch)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Admin/Lesson/Update/{id}
-```
-
-(apiAdminLessonUpdateIdPut)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/x-www-form-urlencoded`
-
-### Form parameters
-
-Title (required)
-
-Form Parameter —
-
-CourseId (required)
-
-Form Parameter — format: int32
-
-ContentText (required)
-
-Form Parameter —
-
-Files (required)
-
-Form Parameter —
-
-FileTypes (required)
-
-Form Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Lesson/GetAll
-```
-
-(apiStudentLessonGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Lesson/GetByCourseId/{courseId}
-```
-
-(apiStudentLessonGetByCourseIdCourseIdGet)
-
-### Path parameters
-
-courseId (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Lesson/GetById/{id}
-```
-
-(apiStudentLessonGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-# Quiz
-
-[Up](#__Methods)
-
-```
-post /api/Admin/Quiz/Create
-```
-
-(apiAdminQuizCreatePost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [QuizRequest](#QuizRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-delete /api/Admin/Quiz/Delete/{id}
-```
-
-(apiAdminQuizDeleteIdDelete)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Quiz/GetAll
-```
-
-(apiAdminQuizGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Quiz/GetById/{id}
-```
-
-(apiAdminQuizGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/Quiz/ToggleStatus/{id}
-```
-
-(apiAdminQuizToggleStatusIdPatch)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Admin/Quiz/Update/{id}
-```
-
-(apiAdminQuizUpdateIdPut)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [QuizRequest](#QuizRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Quiz/GetAll
-```
-
-(apiStudentQuizGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Quiz/GetById/{id}
-```
-
-(apiStudentQuizGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-# Quran
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Quran/SearchGeneric
-```
-
-(apiAdminQuranSearchGenericGet)
-
-### Query parameters
-
-query (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Quran/search
-```
-
-(apiAdminQuranSearchGet)
-
-### Query parameters
-
-q (optional)
-
-Query Parameter —
-
-limit (optional)
-
-Query Parameter — default: 50 format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Quran/surahs
-```
-
-(apiAdminQuranSurahsGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Quran/surahs/{number}
-```
-
-(apiAdminQuranSurahsNumberGet)
-
-### Path parameters
-
-number (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}
-```
-
-(apiAdminQuranSurahsSurahNumberAyahsAyahNumberGet)
-
-### Path parameters
-
-surahNumber (required)
-
-Path Parameter — format: int32
-
-ayahNumber (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Quran/SearchGeneric
-```
-
-(apiStudentQuranSearchGenericGet)
-
-### Query parameters
-
-query (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Quran/search
-```
-
-(apiStudentQuranSearchGet)
-
-### Query parameters
-
-q (optional)
-
-Query Parameter —
-
-limit (optional)
-
-Query Parameter — default: 50 format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Quran/surahs
-```
-
-(apiStudentQuranSurahsGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Quran/surahs/{number}
-```
-
-(apiStudentQuranSurahsNumberGet)
-
-### Path parameters
-
-number (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}
-```
-
-(apiStudentQuranSurahsSurahNumberAyahsAyahNumberGet)
-
-### Path parameters
-
-surahNumber (required)
-
-Path Parameter — format: int32
-
-ayahNumber (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-# ThikrCategory
-
-[Up](#__Methods)
-
-```
-post /api/Admin/ThikrCategory/Create
-```
-
-(apiAdminThikrCategoryCreatePost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [ThikrCategoryRequest](#ThikrCategoryRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-delete /api/Admin/ThikrCategory/Delete/{id}
-```
-
-(apiAdminThikrCategoryDeleteIdDelete)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/ThikrCategory/GetAll
-```
-
-(apiAdminThikrCategoryGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/ThikrCategory/GetAudioUrls
-```
-
-(apiAdminThikrCategoryGetAudioUrlsGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/ThikrCategory/GetById/{id}
-```
-
-(apiAdminThikrCategoryGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/ThikrCategory/Search
-```
-
-(apiAdminThikrCategorySearchGet)
-
-### Query parameters
-
-query (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/ThikrCategory/ToggleStatus/{id}
-```
-
-(apiAdminThikrCategoryToggleStatusIdPatch)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Admin/ThikrCategory/Update/{id}
-```
-
-(apiAdminThikrCategoryUpdateIdPut)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [ThikrCategoryRequest](#ThikrCategoryRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/ThikrCategory/GetAll
-```
-
-(apiStudentThikrCategoryGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/ThikrCategory/GetById/{id}
-```
-
-(apiStudentThikrCategoryGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/ThikrCategory/Search
-```
-
-(apiStudentThikrCategorySearchGet)
-
-### Query parameters
-
-query (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-# ThikrItem
-
-[Up](#__Methods)
-
-```
-post /api/Admin/ThikrItem/Create
-```
-
-(apiAdminThikrItemCreatePost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [ThikrItemRequest](#ThikrItemRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-delete /api/Admin/ThikrItem/Delete/{id}
-```
-
-(apiAdminThikrItemDeleteIdDelete)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/ThikrItem/GetAll
-```
-
-(apiAdminThikrItemGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/ThikrItem/GetByCategoryId/{categoryId}
-```
-
-(apiAdminThikrItemGetByCategoryIdCategoryIdGet)
-
-### Path parameters
-
-categoryId (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/ThikrItem/GetByCount
-```
-
-(apiAdminThikrItemGetByCountGet)
-
-### Query parameters
-
-minCount (optional)
-
-Query Parameter — format: int32
-
-maxCount (optional)
-
-Query Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/ThikrItem/GetById/{id}
-```
-
-(apiAdminThikrItemGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/ThikrItem/Search
-```
-
-(apiAdminThikrItemSearchGet)
-
-### Query parameters
-
-query (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/ThikrItem/ToggleStatus/{id}
-```
-
-(apiAdminThikrItemToggleStatusIdPatch)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Admin/ThikrItem/Update/{id}
-```
-
-(apiAdminThikrItemUpdateIdPut)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [ThikrItemRequest](#ThikrItemRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/ThikrItem/GetAll
-```
-
-(apiStudentThikrItemGetAllGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/ThikrItem/GetByCategoryId/{categoryId}
-```
-
-(apiStudentThikrItemGetByCategoryIdCategoryIdGet)
-
-### Path parameters
-
-categoryId (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/ThikrItem/GetByCount
-```
-
-(apiStudentThikrItemGetByCountGet)
-
-### Query parameters
-
-minCount (optional)
-
-Query Parameter — format: int32
-
-maxCount (optional)
-
-Query Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/ThikrItem/GetById/{id}
-```
-
-(apiStudentThikrItemGetByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter — format: int32
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/ThikrItem/Search
-```
-
-(apiStudentThikrItemSearchGet)
-
-### Query parameters
-
-query (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-# User
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/User/BlockUser/{userId}
-```
-
-(apiAdminUserBlockUserUserIdPatch)
-
-### Path parameters
-
-userId (required)
-
-Path Parameter —
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [integer](#integer) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Admin/User/ChangeEmail
-```
-
-(apiAdminUserChangeEmailPut)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [ChangeEmailRequest](#ChangeEmailRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Admin/User/ChangePassword
-```
-
-(apiAdminUserChangePasswordPut)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [ChangePasswordRequest](#ChangePasswordRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/User/ChangeRole/{userId}
-```
-
-(apiAdminUserChangeRoleUserIdPatch)
-
-### Path parameters
-
-userId (required)
-
-Path Parameter —
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [ChangeRoleRequest](#ChangeRoleRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/User/ConfirmNewEmail
-```
-
-(apiAdminUserConfirmNewEmailGet)
-
-### Query parameters
-
-userId (optional)
-
-Query Parameter —
-
-token (optional)
-
-Query Parameter —
-
-newEmail (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/User/GetAllUsers
-```
-
-(apiAdminUserGetAllUsersGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/User/GetMyProfile
-```
-
-(apiAdminUserGetMyProfileGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/User/GetUserById/{id}
-```
-
-(apiAdminUserGetUserByIdIdGet)
-
-### Path parameters
-
-id (required)
-
-Path Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/User/IsBlockedUser/{userId}
-```
-
-(apiAdminUserIsBlockedUserUserIdPatch)
-
-### Path parameters
-
-userId (required)
-
-Path Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-patch /api/Admin/User/UnBlockUser/{userId}
-```
-
-(apiAdminUserUnBlockUserUserIdPatch)
-
-### Path parameters
-
-userId (required)
-
-Path Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Admin/User/UpdateMyProfile
-```
-
-(apiAdminUserUpdateMyProfilePut)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [UpdateProfileRequest](#UpdateProfileRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Student/User/ChangeEmail
-```
-
-(apiStudentUserChangeEmailPut)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [ChangeEmailRequest](#ChangeEmailRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Student/User/ChangePassword
-```
-
-(apiStudentUserChangePasswordPut)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [ChangePasswordRequest](#ChangePasswordRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/User/ConfirmNewEmail
-```
-
-(apiStudentUserConfirmNewEmailGet)
-
-### Query parameters
-
-userId (optional)
-
-Query Parameter —
-
-token (optional)
-
-Query Parameter —
-
-newEmail (optional)
-
-Query Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/User/GetMyProfile
-```
-
-(apiStudentUserGetMyProfileGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-put /api/Student/User/UpdateMyProfile
-```
-
-(apiStudentUserUpdateMyProfilePut)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [UpdateProfileRequest](#UpdateProfileRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-# UserProgress
-
-[Up](#__Methods)
-
-```
-post /api/Admin/UserProgress/add
-```
-
-(apiAdminUserProgressAddPost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [ProgressCreateRequest](#ProgressCreateRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Admin/UserProgress/me
-```
-
-(apiAdminUserProgressMeGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-post /api/Student/UserProgress/add
-```
-
-(apiStudentUserProgressAddPost)
-
-### Consumes
-
-This API call consumes the following media types via the Content-Type request header:
-
-*   `application/json`
-*   `text/json`
-*   `application/*+json`
-
-### Request body
-
-body [ProgressCreateRequest](#ProgressCreateRequest) (required)
-
-Body Parameter —
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-[Up](#__Methods)
-
-```
-get /api/Student/UserProgress/me
-```
-
-(apiStudentUserProgressMeGet)
-
-### Responses
-
-#### 200
-
-OK[](#)
-
-- - -
-
-## Models
-
-\[ Jump to [Methods](#__Methods) \]
-
-### Table of Contents
-
-1.  [`Category_Create_body`](#Category_Create_body)
-2.  [`ChangeEmailRequest`](#ChangeEmailRequest)
-3.  [`ChangePasswordRequest`](#ChangePasswordRequest)
-4.  [`ChangeRoleRequest`](#ChangeRoleRequest)
-5.  [`Course_Create_body`](#Course_Create_body)
-6.  [`FilesTypes`](#FilesTypes)
-7.  [`ForgotPasswordRequest`](#ForgotPasswordRequest)
-8.  [`HadithBookRequest`](#HadithBookRequest)
-9.  [`HadithChapterRequest`](#HadithChapterRequest)
-10.  [`HadithRequest`](#HadithRequest)
-11.  [`IFormFile`](#IFormFile)
-12.  [`Lesson_Create_body`](#Lesson_Create_body)
-13.  [`LoginRequest`](#LoginRequest)
-14.  [`ProgressCreateRequest`](#ProgressCreateRequest)
-15.  [`ProgressType`](#ProgressType)
-16.  [`QuestionRequest`](#QuestionRequest)
-17.  [`QuizRequest`](#QuizRequest)
-18.  [`RefreshTokenRequest`](#RefreshTokenRequest)
-19.  [`RegisterRequest`](#RegisterRequest)
-20.  [`ResetPasswordRequest`](#ResetPasswordRequest)
-21.  [`ThikrCategoryRequest`](#ThikrCategoryRequest)
-22.  [`ThikrItemRequest`](#ThikrItemRequest)
-23.  [`UpdateProfileRequest`](#UpdateProfileRequest)
-24.  [`Update_id_body`](#Update_id_body)
-25.  [`Update_id_body_1`](#Update_id_body_1)
-26.  [`Update_id_body_2`](#Update_id_body_2)
-27.  [`UserDto`](#UserDto)
-
-### `Category_Create_body` [Up](#__Models)
-
-Name (optional)
-
-[String](#string)
-
-MainImage (optional)
-
-[IFormFile](#IFormFile)
-
-### `ChangeEmailRequest` [Up](#__Models)
-
-newEmail (optional)
-
-[String](#string)
-
-### `ChangePasswordRequest` [Up](#__Models)
-
-currentPassword (optional)
-
-[String](#string)
-
-newPassword (optional)
-
-[String](#string)
-
-### `ChangeRoleRequest` [Up](#__Models)
-
-roleName (optional)
-
-[String](#string)
-
-### `Course_Create_body` [Up](#__Models)
-
-Title (optional)
-
-[String](#string)
-
-Description (optional)
-
-[String](#string)
-
-CategoryId (optional)
-
-[Integer](#integer) format: int32
-
-LessonIds (optional)
-
-[array\[Integer\]](#integer) format: int32
-
-MainImage (optional)
-
-[IFormFile](#IFormFile)
-
-### `FilesTypes` [Up](#__Models)
-
-### `ForgotPasswordRequest` [Up](#__Models)
-
-email (optional)
-
-[String](#string)
-
-### `HadithBookRequest` [Up](#__Models)
-
-arabicTitle (optional)
-
-[String](#string)
-
-arabicAuthor (optional)
-
-[String](#string)
-
-arabicIntroduction (optional)
-
-[String](#string)
-
-englishTitle (optional)
-
-[String](#string)
-
-englishAuthor (optional)
-
-[String](#string)
-
-englishIntroduction (optional)
-
-[String](#string)
-
-### `HadithChapterRequest` [Up](#__Models)
-
-arabicTitle (optional)
-
-[String](#string)
-
-englishTitle (optional)
-
-[String](#string)
-
-hadithBookId (optional)
-
-[Integer](#integer) format: int32
-
-### `HadithRequest` [Up](#__Models)
-
-idInBook (optional)
-
-[Integer](#integer) format: int32
-
-arabicText (optional)
-
-[String](#string)
-
-normalizedText (optional)
-
-[String](#string)
-
-englishNarrator (optional)
-
-[String](#string)
-
-englishText (optional)
-
-[String](#string)
-
-hadithChapterId (optional)
-
-[Integer](#integer) format: int32
-
-hadithBookId (optional)
-
-[Integer](#integer) format: int32
-
-### `IFormFile` [Up](#__Models)
-
-### `Lesson_Create_body` [Up](#__Models)
-
-Title (optional)
-
-[String](#string)
-
-CourseId (optional)
-
-[Integer](#integer) format: int32
-
-ContentText (optional)
-
-[String](#string)
-
-Files (optional)
-
-[array\[IFormFile\]](#IFormFile)
-
-FileTypes (optional)
-
-[array\[FilesTypes\]](#FilesTypes)
-
-### `LoginRequest` [Up](#__Models)
-
-email (optional)
-
-[String](#string)
-
-password (optional)
-
-[String](#string)
-
-### `ProgressCreateRequest` [Up](#__Models)
-
-type (optional)
-
-[ProgressType](#ProgressType)
-
-relatedItemId (optional)
-
-[Integer](#integer) format: int32
-
-count (optional)
-
-[Integer](#integer) format: int32
-
-### `ProgressType` [Up](#__Models)
-
-### `QuestionRequest` [Up](#__Models)
-
-text (optional)
-
-[String](#string)
-
-correctAnswer (optional)
-
-[String](#string)
-
-options (optional)
-
-[array\[String\]](#string)
-
-### `QuizRequest` [Up](#__Models)
-
-title (optional)
-
-[String](#string)
-
-lessonId (optional)
-
-[Integer](#integer) format: int32
-
-questions (optional)
-
-[array\[QuestionRequest\]](#QuestionRequest)
-
-### `RefreshTokenRequest` [Up](#__Models)
-
-refreshToken (optional)
-
-[String](#string)
-
-### `RegisterRequest` [Up](#__Models)
-
-fullName (optional)
-
-[String](#string)
-
-userName (optional)
-
-[String](#string)
-
-email (optional)
-
-[String](#string)
-
-password (optional)
-
-[String](#string)
-
-phoneNumber (optional)
-
-[String](#string)
-
-### `ResetPasswordRequest` [Up](#__Models)
-
-newPassword (optional)
-
-[String](#string)
-
-email (optional)
-
-[String](#string)
-
-code (optional)
-
-[String](#string)
-
-### `ThikrCategoryRequest` [Up](#__Models)
-
-title (optional)
-
-[String](#string)
-
-normalizedText (optional)
-
-[String](#string)
-
-audioUrl (optional)
-
-[String](#string)
-
-### `ThikrItemRequest` [Up](#__Models)
-
-text (optional)
-
-[String](#string)
-
-normalizedText (optional)
-
-[String](#string)
-
-count (optional)
-
-[Integer](#integer) format: int32
-
-description (optional)
-
-[String](#string)
-
-reference (optional)
-
-[String](#string)
-
-thikrCategoryId (optional)
-
-[Integer](#integer) format: int32
-
-### `UpdateProfileRequest` [Up](#__Models)
-
-fullName (optional)
-
-[String](#string)
-
-userName (optional)
-
-[String](#string)
-
-phoneNumber (optional)
-
-[String](#string)
-
-city (optional)
-
-[String](#string)
-
-street (optional)
-
-[String](#string)
-
-### `Update_id_body` [Up](#__Models)
-
-Title (optional)
-
-[String](#string)
-
-Description (optional)
-
-[String](#string)
-
-CategoryId (optional)
-
-[Integer](#integer) format: int32
-
-LessonIds (optional)
-
-[array\[Integer\]](#integer) format: int32
-
-MainImage (optional)
-
-[IFormFile](#IFormFile)
-
-### `Update_id_body_1` [Up](#__Models)
-
-Title (optional)
-
-[String](#string)
-
-CourseId (optional)
-
-[Integer](#integer) format: int32
-
-ContentText (optional)
-
-[String](#string)
-
-Files (optional)
-
-[array\[IFormFile\]](#IFormFile)
-
-FileTypes (optional)
-
-[array\[FilesTypes\]](#FilesTypes)
-
-### `Update_id_body_2` [Up](#__Models)
-
-Name (optional)
-
-[String](#string)
-
-MainImage (optional)
-
-[IFormFile](#IFormFile)
-
-### `UserDto` [Up](#__Models)
-
-accessToken (optional)
-
-[String](#string)
-
-refreshToken (optional)
-
-[String](#string)
