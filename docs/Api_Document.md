@@ -1,8 +1,11 @@
 # Project API Documentation | v1
 ## Version: 1.0.0
 
+<br>
 
 ---
+
+<br>
 
 | Path | Method | Summary |
 | :--- | :--- | :--- |
@@ -159,10 +162,55 @@
 | [/api/Admin/Category/ToggleStatus/{id}](#apiadmincategorytogglestatusid) | `PATCH` | Admin category status |
 | [/api/Admin/Category/Delete/{id}](#apiadmincategorydeleteid) | `DELETE` | Admin remove category |
 
-
+<br>
 
 ---
 
+<br>
+
+
+### 📋 Request Models Table of Contents
+
+| Category | Model Name |
+| :--- | :--- |
+| **Quran** | [AyahRequest](#ayahrequest), [SurahRequest](#surahrequest) |
+| **Hadith** | [HadithBookRequest](#hadithbookrequest), [HadithChapterRequest](#hadithchapterrequest), [HadithRequest](#hadithrequest) |
+| **Educational** | [CategoryRequest](#categoryrequest), [CourseRequest](#courserequest), [LessonRequest](#lessonrequest) |
+| **Quiz** | [QuizRequest](#quizrequest), [QuestionRequest](#questionrequest) |
+| **Thikr** | [ThikrCategoryRequest](#thikrcategoryrequest), [ThikrItemRequest](#thikritemrequest) |
+| **Authentication** | [RegisterRequest](#registerrequest), [LoginRequest](#loginrequest), [RefreshTokenRequest](#refreshtokenrequest) |
+| **Identity Actions** | [ForgotPasswordRequest](#forgotpasswordrequest), [ResetPasswordRequest](#resetpasswordrequest) |
+| **User Profile** | [UpdateProfileRequest](#updateprofilerequest), [UserDto](#userdto) |
+| **Account Edits** | [ChangeEmailRequest](#changeemailrequest), [ChangePasswordRequest](#changepasswordrequest), [ChangeRoleRequest](#changerolerequest) |
+| **User Progress** | [ProgressCreateRequest](#progresscreaterequest), [ProgressUpdateRequest](#progressupdaterequest) |
+| **System Types** | [IFormFile](#iformfile), [FilesTypes](#filestypes), [ProgressType](#progresstype) |
+
+
+<br>
+
+---
+
+<br>
+
+### 📋 Response Models Table of Contents
+
+| Category | Model Name |
+| :--- | :--- |
+| **Quran** | [AyahResponse](#ayahresponse), [SurahResponse](#surahresponse) |
+| **Hadith** | [HadithBookResponse](#hadithbookresponse), [HadithChapterResponse](#hadithchapterresponse), [HadithResponse](#hadithresponse) |
+| **Educational** | [CategoryResponse](#categoryresponse), [CourseResponse](#courseresponse), [LessonResponse](#lessonresponse), [FileResponse](#fileresponse) |
+| **Quiz** | [QuizResponse](#quizresponse), [QuestionResponse](#questionresponse) |
+| **Thikr** | [ThikrCategoryResponse](#thikrcategoryresponse), [ThikrItemResponse](#thikritemresponse) |
+| **Identity & Access** | [UserResponse](#userresponse), [UserDTO](#userdto), [RegisterResponse](#registerresponse) |
+| **Tracking** | [ProgressResponse](#progressresponse) |
+
+<br>
+
+---
+
+<br>
+
+---
 ## Endpoint Details
 
 ### /api/Student/Course/GetAll
@@ -2341,170 +2389,370 @@
 | ---- | ----------- |
 | 200 | OK |
 
-### Models
 
+<br>
+<br>
+<hr>
+<hr>
+<br>
+<br>
 
-#### ChangeEmailRequest
+### 📦 Request Models (DTOs)
 
+#### AyahRequest
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| newEmail | string |  | No |
+| surahNumber | integer | | No |
+| numberInSurah | integer | | No |
+| globalNumber | integer | | No |
+| text | string | | No |
+| normalizedText | string | | No |
+| juz | integer | | No |
+| page | integer | | No |
+| surahId | integer | | No |
 
-#### ChangePasswordRequest
-
+#### SurahRequest
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| currentPassword | string |  | No |
-| newPassword | string |  | No |
+| id | integer | | No |
+| number | integer | | No |
+| name | string | | No |
+| englishName | string | | No |
+| englishNameTranslation | string | | No |
+| revelationPlace | string | | No |
+| ayahCount | integer | | No |
 
-#### ChangeRoleRequest
-
+#### CategoryRequest
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| roleName | string |  | No |
+| name | string | | No |
+| mainImage | [IFormFile](#iformfile) | | No |
 
-#### FilesTypes
-
+#### CourseRequest
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| FilesTypes | integer |  |  |
+| title | string | | No |
+| description | string | | No |
+| categoryId | integer | | No |
+| lessonIds | [ integer ] | | No |
+| mainImage | [IFormFile](#iformfile) | | No |
 
-#### ForgotPasswordRequest
-
+#### LessonRequest
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| email | string |  | No |
+| title | string | | No |
+| courseId | integer | | No |
+| contentText | string | | No |
+| files | [ [IFormFile](#iformfile) ] | | No |
+| fileTypes | [ [FilesTypes](#filestypes) ] | | No |
 
 #### HadithBookRequest
-
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| arabicTitle | string |  | No |
-| arabicAuthor | string |  | No |
-| arabicIntroduction | string |  | No |
-| englishTitle | string |  | No |
-| englishAuthor | string |  | No |
-| englishIntroduction | string |  | No |
+| arabicTitle | string | | No |
+| arabicAuthor | string | | No |
+| arabicIntroduction | string | | No |
+| englishTitle | string | | No |
+| englishAuthor | string | | No |
+| englishIntroduction | string | | No |
 
 #### HadithChapterRequest
-
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| arabicTitle | string |  | No |
-| englishTitle | string |  | No |
-| hadithBookId | integer |  | No |
+| arabicTitle | string | | No |
+| englishTitle | string | | No |
+| hadithBookId | integer | | No |
 
 #### HadithRequest
-
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| idInBook | integer |  | No |
-| arabicText | string |  | No |
-| normalizedText | string |  | No |
-| englishNarrator | string |  | No |
-| englishText | string |  | No |
-| hadithChapterId | integer |  | No |
-| hadithBookId | integer |  | No |
-
-#### IFormFile
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| IFormFile | string |  |  |
-
-#### LoginRequest
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| email | string |  | No |
-| password | string |  | No |
-
-#### ProgressCreateRequest
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| type | [ProgressType](#progresstype) |  | No |
-| relatedItemId | integer |  | No |
-| count | integer |  | No |
-
-#### ProgressType
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| ProgressType |  |  |  |
-
-#### QuestionRequest
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| text | string |  | No |
-| correctAnswer | string |  | No |
-| options | [ string ] |  | No |
+| idInBook | integer | | No |
+| arabicText | string | | No |
+| normalizedText | string | | No |
+| englishNarrator | string | | No |
+| englishText | string | | No |
+| hadithChapterId | integer | | No |
+| hadithBookId | integer | | No |
 
 #### QuizRequest
-
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| title | string |  | No |
-| lessonId | integer |  | No |
-| questions | [ [QuestionRequest](#questionrequest) ] |  | No |
+| title | string | | No |
+| lessonId | integer | | No |
+| questions | [ [QuestionRequest](#questionrequest) ] | | No |
 
-#### RefreshTokenRequest
-
+#### QuestionRequest
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| refreshToken | string |  | No |
-
-#### RegisterRequest
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| fullName | string |  | No |
-| userName | string |  | No |
-| email | string |  | No |
-| password | string |  | No |
-| phoneNumber | string |  | No |
-
-#### ResetPasswordRequest
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| newPassword | string |  | No |
-| email | string |  | No |
-| code | string |  | No |
+| text | string | | No |
+| correctAnswer | string | | No |
+| options | [ string ] | | No |
 
 #### ThikrCategoryRequest
-
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| title | string |  | No |
-| normalizedText | string |  | No |
-| audioUrl | string |  | No |
+| title | string | | No |
+| normalizedText | string | | No |
+| audioUrl | string | | No |
 
 #### ThikrItemRequest
-
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| text | string |  | No |
-| normalizedText | string |  | No |
-| count | integer |  | No |
-| description | string |  | No |
-| reference | string |  | No |
-| thikrCategoryId | integer |  | No |
+| text | string | | No |
+| normalizedText | string | | No |
+| count | integer | | No |
+| description | string | | No |
+| reference | string | | No |
+| thikrCategoryId | integer | | No |
+
+#### ProgressCreateRequest
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| type | [ProgressType](#progresstype) | | No |
+| relatedItemId | integer | | No |
+| count | integer | | No |
+
+#### ProgressUpdateRequest
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| id | integer | | No |
+| count | integer | | No |
+
+#### RegisterRequest
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| fullName | string | | No |
+| userName | string | | No |
+| email | string | | No |
+| password | string | | No |
+| phoneNumber | string | | No |
+
+#### LoginRequest
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| email | string | | No |
+| password | string | | No |
+
+#### RefreshTokenRequest
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| refreshToken | string | | No |
+
+#### ForgotPasswordRequest
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| email | string | | No |
+
+#### ResetPasswordRequest
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| newPassword | string | | No |
+| email | string | | No |
+| code | string | | No |
 
 #### UpdateProfileRequest
-
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| fullName | string |  | No |
-| userName | string |  | No |
-| phoneNumber | string |  | No |
-| city | string |  | No |
-| street | string |  | No |
+| fullName | string | | No |
+| userName | string | | No |
+| phoneNumber | string | | No |
+| city | string | | No |
+| street | string | | No |
+
+#### ChangeEmailRequest
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| newEmail | string | | No |
+
+#### ChangePasswordRequest
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| currentPassword | string | | No |
+| newPassword | string | | No |
+
+#### ChangeRoleRequest
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| roleName | string | | No |
 
 #### UserDto
-
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| accessToken | string |  | No |
-| refreshToken | string |  | No |
+| accessToken | string | | No |
+| refreshToken | string | | No |
+
+#### IFormFile
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| IFormFile | string | | |
+
+#### FilesTypes
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| FilesTypes | integer | | |
+
+#### ProgressType
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| ProgressType | | | |
+
+
+
+
+
+### 📤 Response Models (DTOs)
+
+#### AyahResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| surahNumber | integer | Number of the surah in the Quran |
+| numberInSurah | integer | Ayah number within its surah |
+| globalNumber | integer | Global ayah number (1-6236) |
+| text | string | Original Arabic text |
+| normalizedText | string | Search-optimized Arabic text |
+| juz | integer | Juz number |
+| page | integer | Page number in the Madani Mushaf |
+
+#### SurahResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | integer | Database identifier |
+| number | integer | Surah number (1-114) |
+| name | string | Arabic name of the surah |
+| englishName | string | Transliterated English name |
+| englishNameTranslation | string | English meaning of the name |
+| revelationPlace | string | Meccan or Medinan |
+| ayahCount | integer | Total number of ayahs |
+| ayahs | [ [AyahResponse](#ayahresponse) ] | List of ayahs in the surah |
+
+#### HadithBookResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | integer | Database identifier |
+| arabicTitle | string | Arabic title of the book |
+| englishTitle | string | English title of the book |
+| ChapterCount | integer | Total count of chapters in book |
+| HadithCount | integer | Total count of hadiths in book |
+
+#### HadithChapterResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | integer | Database identifier |
+| arabicTitle | string | Chapter title in Arabic |
+| englishTitle | string | Chapter title in English |
+| HadithCount | integer | Total count of hadiths in chapter |
+
+#### HadithResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | integer | Database identifier |
+| idInBook | integer | Hadith number within the specific book |
+| arabicText | string | Original Arabic text |
+| englishText | string | English translation |
+| englishNarrator | string | Name of the narrator |
+| hadithChapterId | integer | Associated chapter ID |
+| hadithBookId | integer | Associated book ID |
+
+#### CategoryResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | integer | Database identifier |
+| name | string | Category name |
+| mainImageUrl | string | Public URL for the category image |
+| CoursesIds | List<int>  | list of courses ids related with the category |
+
+#### CourseResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | integer | Database identifier |
+| title | string | Course title |
+| description | string | Detailed description |
+| categoryId | integer | Parent category identifier |
+| mainImageUrl | string | Public URL for the course image |
+| LessonsIds | List<int>  | list of lessons ids related with the course |
+
+#### LessonResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | integer | Database identifier |
+| title | string | Lesson title |
+| contentText | string | Text content of the lesson |
+| courseId | integer | Parent course identifier |
+| QuizIds | List<int>  | list of quizes ids related with the lesson |
+| files | [ [FileResponse](#fileresponse) ] | List of media files (Audio/Video/PDF) |
+
+#### FileResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| Url | string | Public access URL |
+| fileType | [FilesTypes](#filestypes) | Enum indicating text, image, video, audio, or pdf |
+
+#### QuizResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | integer | Database identifier |
+| title | string | Quiz title |
+| lessonId | integer | Associated lesson identifier |
+| QuestionsIds | List<int>  | list of questions ids related with the quiz |
+| questions | [ [QuestionResponse](#questionreponse) ] | List of quiz questions |
+
+#### QuestionResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | integer | Database identifier |
+| text | string | The question text |
+| options | Lisr< string> | List of multiple-choice options |
+
+#### ThikrCategoryResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | integer | Database identifier |
+| title | string | Thikr group title |
+| audioUrl | string | URL for category-wide audio |
+| ThikrItemsIds | List<int>  | list of items ids related with the category |
+| thikrItems | [ [ThikrItemResponse](#thikritemresponse) ] | List of thikr items |
+
+#### ThikrItemResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | integer | Database identifier |
+| text | string | Arabic thikr text |
+| description | string | Meaning or virtue |
+| count | integer | Required repetition count |
+| ThikrCategoryId | integer | Associated ThikrCategory identifier |
+| reference | string | Source (e.g., Sahih Muslim) |
+
+#### UserResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | string | Unique user identifier |
+| fullName | string | User's full name |
+| email | string | Registered email |
+| userName | string | Chosen username |
+| phoneNumber | string | Contact number |
+| roleName | string | User permission level |
+     public bool EmailConfirmed { get; set; }
+     public string? City { get; set; }
+public string? Street { get; set; }
+public List<UserProgressResponse> UserProgresses { get; set; }
+
+#### UserDTO
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| AccessToken | string | Access token feild|
+| RefreshToken | string | Refresh token feild |
+
+#### RegisterResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | string | Success or failure message |
+| email | string | Registered email |
+
+#### ProgressResponse
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | integer | Progress record identifier |
+| type | [ProgressType](#progresstype) | Type (Course, Lesson, etc.) |
+| relatedItemId | integer | ID of the item being tracked |
+| count | integer | Current completion count or score |
+| LastUpdated | DateTime | Date of last update |
