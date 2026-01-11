@@ -1,4214 +1,2157 @@
----
-title: PL | v1 v1.0.0
-language_tabs:
-  - "false": "false"
-language_clients:
-  - "false": ""
-toc_footers: []
-includes: []
-search: false
-highlight_theme: darkula
-headingLevel: 2
+# PL | v1
+## Version: 1.0.0
 
----
+### /api/Student/Course/GetAll
 
-<!-- Generator: Widdershins v4.0.1 -->
+#### GET
+##### Responses
 
-<h1 id="pl-v1">PL | v1 v1.0.0</h1>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
+### /api/Student/Course/GetById/{id}
 
-Base URLs:
+#### GET
+##### Parameters
 
-* <a href="https://localhost:7050">https://localhost:7050</a>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-* <a href="http://localhost:5160">http://localhost:5160</a>
+##### Responses
 
-<h1 id="pl-v1-course">Course</h1>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## get__api_Student_Course_GetAll
+### /api/Student/Lesson/GetAll
 
-> Code samples
+#### GET
+##### Responses
 
-`GET /api/Student/Course/GetAll`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_student_course_getall-responses">Responses</h3>
+### /api/Student/Lesson/GetById/{id}
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-## get__api_Student_Course_GetById_{id}
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Student/Course/GetById/{id}`
+### /api/Student/Lesson/GetByCourseId/{courseId}
 
-<h3 id="get__api_student_course_getbyid_{id}-parameters">Parameters</h3>
+#### GET
+##### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| courseId | path |  | Yes | integer |
 
-<h3 id="get__api_student_course_getbyid_{id}-responses">Responses</h3>
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Student/Quiz/GetAll
 
-## post__api_Admin_Course_Create
+#### GET
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`POST /api/Admin/Course/Create`
+### /api/Student/Quiz/GetById/{id}
 
-> Body parameter
+#### GET
+##### Parameters
 
-```yaml
-Title: string
-Description: string
-CategoryId: 0
-LessonIds:
-  - 0
-MainImage: string
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-```
+##### Responses
 
-<h3 id="post__api_admin_course_create-parameters">Parameters</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|object|true|none|
-|» Title|body|string|false|none|
-|» Description|body|string|false|none|
-|» CategoryId|body|integer(int32)|false|none|
-|» LessonIds|body|[integer]|false|none|
-|» MainImage|body|[IFormFile](#schemaiformfile)(binary)|false|none|
+### /api/Student/Quran/surahs
 
-<h3 id="post__api_admin_course_create-responses">Responses</h3>
+#### GET
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Student/Quran/surahs/{number}
 
-## put__api_Admin_Course_Update_{id}
+#### GET
+##### Parameters
 
-> Code samples
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| number | path |  | Yes | integer |
 
-`PUT /api/Admin/Course/Update/{id}`
+##### Responses
 
-> Body parameter
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-```yaml
-Title: string
-Description: string
-CategoryId: 0
-LessonIds:
-  - 0
-MainImage: string
+### /api/Student/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}
 
-```
+#### GET
+##### Parameters
 
-<h3 id="put__api_admin_course_update_{id}-parameters">Parameters</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| surahNumber | path |  | Yes | integer |
+| ayahNumber | path |  | Yes | integer |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-|body|body|object|true|none|
-|» Title|body|string|false|none|
-|» Description|body|string|false|none|
-|» CategoryId|body|integer(int32)|false|none|
-|» LessonIds|body|[integer]|false|none|
-|» MainImage|body|[IFormFile](#schemaiformfile)(binary)|false|none|
+##### Responses
 
-<h3 id="put__api_admin_course_update_{id}-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Student/Quran/search
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## patch__api_Admin_Course_ToggleStatus_{id}
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| q | query |  | No | string |
+| limit | query |  | No | integer |
 
-> Code samples
+##### Responses
 
-`PATCH /api/Admin/Course/ToggleStatus/{id}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="patch__api_admin_course_togglestatus_{id}-parameters">Parameters</h3>
+### /api/Student/Quran/SearchGeneric
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+#### GET
+##### Parameters
 
-<h3 id="patch__api_admin_course_togglestatus_{id}-responses">Responses</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| query | query |  | No | string |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## delete__api_Admin_Course_Delete_{id}
+### /api/Student/User/GetMyProfile
 
-> Code samples
+#### GET
+##### Responses
 
-`DELETE /api/Admin/Course/Delete/{id}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="delete__api_admin_course_delete_{id}-parameters">Parameters</h3>
+### /api/Student/User/UpdateMyProfile
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+#### PUT
+##### Responses
 
-<h3 id="delete__api_admin_course_delete_{id}-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Student/User/ChangePassword
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### PUT
+##### Responses
 
-## get__api_Admin_Course_GetAll
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Code samples
+### /api/Student/User/ChangeEmail
 
-`GET /api/Admin/Course/GetAll`
+#### PUT
+##### Responses
 
-<h3 id="get__api_admin_course_getall-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Student/User/ConfirmNewEmail
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## get__api_Admin_Course_GetById_{id}
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| userId | query |  | No | string |
+| token | query |  | No | string |
+| newEmail | query |  | No | string |
 
-> Code samples
+##### Responses
 
-`GET /api/Admin/Course/GetById/{id}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_course_getbyid_{id}-parameters">Parameters</h3>
+### /api/Student/UserProgress/add
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+#### POST
+##### Responses
 
-<h3 id="get__api_admin_course_getbyid_{id}-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Student/UserProgress/me
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Responses
 
-<h1 id="pl-v1-lesson">Lesson</h1>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## get__api_Student_Lesson_GetAll
+### /api/Student/ThikrCategory/GetAll
 
-> Code samples
+#### GET
+##### Responses
 
-`GET /api/Student/Lesson/GetAll`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_student_lesson_getall-responses">Responses</h3>
+### /api/Student/ThikrCategory/GetById/{id}
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-## get__api_Student_Lesson_GetById_{id}
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Student/Lesson/GetById/{id}`
+### /api/Student/ThikrCategory/Search
 
-<h3 id="get__api_student_lesson_getbyid_{id}-parameters">Parameters</h3>
+#### GET
+##### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| query | query |  | No | string |
 
-<h3 id="get__api_student_lesson_getbyid_{id}-responses">Responses</h3>
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Student/ThikrItem/GetAll
 
-## get__api_Student_Lesson_GetByCourseId_{courseId}
+#### GET
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Student/Lesson/GetByCourseId/{courseId}`
+### /api/Student/ThikrItem/GetById/{id}
 
-<h3 id="get__api_student_lesson_getbycourseid_{courseid}-parameters">Parameters</h3>
+#### GET
+##### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|courseId|path|integer(int32)|true|none|
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="get__api_student_lesson_getbycourseid_{courseid}-responses">Responses</h3>
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Student/ThikrItem/GetByCategoryId/{categoryId}
 
-## post__api_Admin_Lesson_Create
+#### GET
+##### Parameters
 
-> Code samples
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| categoryId | path |  | Yes | integer |
 
-`POST /api/Admin/Lesson/Create`
+##### Responses
 
-> Body parameter
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-```yaml
-Title: string
-CourseId: 0
-ContentText: string
-Files:
-  - string
-FileTypes:
-  - 0
+### /api/Student/ThikrItem/Search
 
-```
+#### GET
+##### Parameters
 
-<h3 id="post__api_admin_lesson_create-parameters">Parameters</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| query | query |  | No | string |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|object|true|none|
-|» Title|body|string|false|none|
-|» CourseId|body|integer(int32)|false|none|
-|» ContentText|body|string|false|none|
-|» Files|body|[[IFormFile](#schemaiformfile)]|false|none|
-|» FileTypes|body|[[FilesTypes](#schemafilestypes)]|false|none|
+##### Responses
 
-<h3 id="post__api_admin_lesson_create-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Student/ThikrItem/GetByCount
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## put__api_Admin_Lesson_Update_{id}
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| minCount | query |  | No | integer |
+| maxCount | query |  | No | integer |
 
-> Code samples
+##### Responses
 
-`PUT /api/Admin/Lesson/Update/{id}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Body parameter
+### /api/Student/HadithBooks/GetAll
 
-```yaml
-Title: string
-CourseId: 0
-ContentText: string
-Files:
-  - string
-FileTypes:
-  - 0
+#### GET
+##### Responses
 
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="put__api_admin_lesson_update_{id}-parameters">Parameters</h3>
+### /api/Student/HadithBooks/GetById/{id}
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-|body|body|object|true|none|
-|» Title|body|string|false|none|
-|» CourseId|body|integer(int32)|false|none|
-|» ContentText|body|string|false|none|
-|» Files|body|[[IFormFile](#schemaiformfile)]|false|none|
-|» FileTypes|body|[[FilesTypes](#schemafilestypes)]|false|none|
+#### GET
+##### Parameters
 
-<h3 id="put__api_admin_lesson_update_{id}-responses">Responses</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## delete__api_Admin_Lesson_Delete_{id}
+### /api/Student/HadithBooks/Search
 
-> Code samples
+#### GET
+##### Parameters
 
-`DELETE /api/Admin/Lesson/Delete/{id}`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| query | query |  | No | string |
 
-<h3 id="delete__api_admin_lesson_delete_{id}-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="delete__api_admin_lesson_delete_{id}-responses">Responses</h3>
+### /api/Student/HadithBooks/{id}/chapters
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-## patch__api_Admin_Lesson_ToggleStatus_{id}
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`PATCH /api/Admin/Lesson/ToggleStatus/{id}`
+### /api/Student/HadithBooks/{id}/hadiths
 
-<h3 id="patch__api_admin_lesson_togglestatus_{id}-parameters">Parameters</h3>
+#### GET
+##### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="patch__api_admin_lesson_togglestatus_{id}-responses">Responses</h3>
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Student/HadithBooks/{id}/random
 
-## get__api_Admin_Lesson_GetAll
+#### GET
+##### Parameters
 
-> Code samples
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-`GET /api/Admin/Lesson/GetAll`
+##### Responses
 
-<h3 id="get__api_admin_lesson_getall-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Student/HadithBooks/{id}/stats
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## get__api_Admin_Lesson_GetById_{id}
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-> Code samples
+##### Responses
 
-`GET /api/Admin/Lesson/GetById/{id}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_lesson_getbyid_{id}-parameters">Parameters</h3>
+### /api/Student/HadithChapters/GetAll
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+#### GET
+##### Responses
 
-<h3 id="get__api_admin_lesson_getbyid_{id}-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Student/HadithChapters/GetById/{id}
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## get__api_Admin_Lesson_GetByCourseId_{courseId}
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-> Code samples
+##### Responses
 
-`GET /api/Admin/Lesson/GetByCourseId/{courseId}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_lesson_getbycourseid_{courseid}-parameters">Parameters</h3>
+### /api/Student/HadithChapters/book/{bookId}
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|courseId|path|integer(int32)|true|none|
+#### GET
+##### Parameters
 
-<h3 id="get__api_admin_lesson_getbycourseid_{courseid}-responses">Responses</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| bookId | path |  | Yes | integer |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h1 id="pl-v1-quiz">Quiz</h1>
+### /api/Student/HadithChapters/Search
 
-## get__api_Student_Quiz_GetAll
+#### GET
+##### Parameters
 
-> Code samples
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| query | query |  | No | string |
 
-`GET /api/Student/Quiz/GetAll`
+##### Responses
 
-<h3 id="get__api_student_quiz_getall-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Student/HadithChapters/{id}/hadiths
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## get__api_Student_Quiz_GetById_{id}
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-> Code samples
+##### Responses
 
-`GET /api/Student/Quiz/GetById/{id}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_student_quiz_getbyid_{id}-parameters">Parameters</h3>
+### /api/Student/HadithChapters/{id}/random
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+#### GET
+##### Parameters
 
-<h3 id="get__api_student_quiz_getbyid_{id}-responses">Responses</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## post__api_Admin_Quiz_Create
+### /api/Student/HadithChapters/{id}/stats
 
-> Code samples
+#### GET
+##### Parameters
 
-`POST /api/Admin/Quiz/Create`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-> Body parameter
+##### Responses
 
-```json
-{
-  "title": "string",
-  "lessonId": 0,
-  "questions": [
-    {
-      "text": "string",
-      "correctAnswer": "string",
-      "options": [
-        "string"
-      ]
-    }
-  ]
-}
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="post__api_admin_quiz_create-parameters">Parameters</h3>
+### /api/Student/Hadiths/GetAll
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[QuizRequest](#schemaquizrequest)|true|none|
+#### GET
+##### Responses
 
-<h3 id="post__api_admin_quiz_create-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Student/Hadiths/GetById/{id}
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## put__api_Admin_Quiz_Update_{id}
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-> Code samples
+##### Responses
 
-`PUT /api/Admin/Quiz/Update/{id}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Body parameter
+### /api/Student/Hadiths/chapter/{chapterId}
 
-```json
-{
-  "title": "string",
-  "lessonId": 0,
-  "questions": [
-    {
-      "text": "string",
-      "correctAnswer": "string",
-      "options": [
-        "string"
-      ]
-    }
-  ]
-}
-```
+#### GET
+##### Parameters
 
-<h3 id="put__api_admin_quiz_update_{id}-parameters">Parameters</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| chapterId | path |  | Yes | integer |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-|body|body|[QuizRequest](#schemaquizrequest)|true|none|
+##### Responses
 
-<h3 id="put__api_admin_quiz_update_{id}-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Student/Hadiths/book/{bookId}
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## patch__api_Admin_Quiz_ToggleStatus_{id}
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| bookId | path |  | Yes | integer |
 
-> Code samples
+##### Responses
 
-`PATCH /api/Admin/Quiz/ToggleStatus/{id}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="patch__api_admin_quiz_togglestatus_{id}-parameters">Parameters</h3>
+### /api/Student/Hadiths/Search
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+#### GET
+##### Parameters
 
-<h3 id="patch__api_admin_quiz_togglestatus_{id}-responses">Responses</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| query | query |  | No | string |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## delete__api_Admin_Quiz_Delete_{id}
+### /api/Student/Hadiths/englishNarrator/{name}
 
-> Code samples
+#### GET
+##### Parameters
 
-`DELETE /api/Admin/Quiz/Delete/{id}`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| name | path |  | Yes | string |
 
-<h3 id="delete__api_admin_quiz_delete_{id}-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="delete__api_admin_quiz_delete_{id}-responses">Responses</h3>
+### /api/Student/Hadiths/random
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| bookId | query |  | No | integer |
+| chapterId | query |  | No | integer |
 
-## get__api_Admin_Quiz_GetAll
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Admin/Quiz/GetAll`
+### /api/Student/Hadiths/stats
 
-<h3 id="get__api_admin_quiz_getall-responses">Responses</h3>
+#### GET
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Admin/Course/Create
 
-## get__api_Admin_Quiz_GetById_{id}
+#### POST
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Admin/Quiz/GetById/{id}`
+### /api/Admin/Course/Update/{id}
 
-<h3 id="get__api_admin_quiz_getbyid_{id}-parameters">Parameters</h3>
+#### PUT
+##### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="get__api_admin_quiz_getbyid_{id}-responses">Responses</h3>
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Admin/Course/ToggleStatus/{id}
 
-<h1 id="pl-v1-quran">Quran</h1>
+#### PATCH
+##### Parameters
 
-## get__api_Student_Quran_surahs
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-> Code samples
+##### Responses
 
-`GET /api/Student/Quran/surahs`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_student_quran_surahs-responses">Responses</h3>
+### /api/Admin/Course/Delete/{id}
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### DELETE
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-## get__api_Student_Quran_surahs_{number}
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Student/Quran/surahs/{number}`
+### /api/Admin/Course/GetAll
 
-<h3 id="get__api_student_quran_surahs_{number}-parameters">Parameters</h3>
+#### GET
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|number|path|integer(int32)|true|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_student_quran_surahs_{number}-responses">Responses</h3>
+### /api/Admin/Course/GetById/{id}
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-## get__api_Student_Quran_surahs_{surahNumber}_ayahs_{ayahNumber}
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Student/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}`
+### /api/Admin/Lesson/Create
 
-<h3 id="get__api_student_quran_surahs_{surahnumber}_ayahs_{ayahnumber}-parameters">Parameters</h3>
+#### POST
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|surahNumber|path|integer(int32)|true|none|
-|ayahNumber|path|integer(int32)|true|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_student_quran_surahs_{surahnumber}_ayahs_{ayahnumber}-responses">Responses</h3>
+### /api/Admin/Lesson/Update/{id}
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### PUT
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-## get__api_Student_Quran_search
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Student/Quran/search`
+### /api/Admin/Lesson/Delete/{id}
 
-<h3 id="get__api_student_quran_search-parameters">Parameters</h3>
+#### DELETE
+##### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|q|query|string|false|none|
-|limit|query|integer(int32)|false|none|
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="get__api_student_quran_search-responses">Responses</h3>
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Admin/Lesson/ToggleStatus/{id}
 
-## get__api_Student_Quran_SearchGeneric
+#### PATCH
+##### Parameters
 
-> Code samples
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-`GET /api/Student/Quran/SearchGeneric`
+##### Responses
 
-<h3 id="get__api_student_quran_searchgeneric-parameters">Parameters</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|query|query|string|false|none|
+### /api/Admin/Lesson/GetAll
 
-<h3 id="get__api_student_quran_searchgeneric-responses">Responses</h3>
+#### GET
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Admin/Lesson/GetById/{id}
 
-## get__api_Admin_Quran_surahs
+#### GET
+##### Parameters
 
-> Code samples
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-`GET /api/Admin/Quran/surahs`
+##### Responses
 
-<h3 id="get__api_admin_quran_surahs-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Admin/Lesson/GetByCourseId/{courseId}
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## get__api_Admin_Quran_surahs_{number}
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| courseId | path |  | Yes | integer |
 
-> Code samples
+##### Responses
 
-`GET /api/Admin/Quran/surahs/{number}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_quran_surahs_{number}-parameters">Parameters</h3>
+### /api/Admin/Quiz/Create
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|number|path|integer(int32)|true|none|
+#### POST
+##### Responses
 
-<h3 id="get__api_admin_quran_surahs_{number}-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Admin/Quiz/Update/{id}
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### PUT
+##### Parameters
 
-## get__api_Admin_Quran_surahs_{surahNumber}_ayahs_{ayahNumber}
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-> Code samples
+##### Responses
 
-`GET /api/Admin/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_quran_surahs_{surahnumber}_ayahs_{ayahnumber}-parameters">Parameters</h3>
+### /api/Admin/Quiz/ToggleStatus/{id}
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|surahNumber|path|integer(int32)|true|none|
-|ayahNumber|path|integer(int32)|true|none|
+#### PATCH
+##### Parameters
 
-<h3 id="get__api_admin_quran_surahs_{surahnumber}_ayahs_{ayahnumber}-responses">Responses</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## get__api_Admin_Quran_search
+### /api/Admin/Quiz/Delete/{id}
 
-> Code samples
+#### DELETE
+##### Parameters
 
-`GET /api/Admin/Quran/search`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="get__api_admin_quran_search-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|q|query|string|false|none|
-|limit|query|integer(int32)|false|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_quran_search-responses">Responses</h3>
+### /api/Admin/Quiz/GetAll
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## get__api_Admin_Quran_SearchGeneric
+### /api/Admin/Quiz/GetById/{id}
 
-> Code samples
+#### GET
+##### Parameters
 
-`GET /api/Admin/Quran/SearchGeneric`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="get__api_admin_quran_searchgeneric-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|query|query|string|false|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_quran_searchgeneric-responses">Responses</h3>
+### /api/Admin/Quran/surahs
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h1 id="pl-v1-user">User</h1>
+### /api/Admin/Quran/surahs/{number}
 
-## get__api_Student_User_GetMyProfile
+#### GET
+##### Parameters
 
-> Code samples
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| number | path |  | Yes | integer |
 
-`GET /api/Student/User/GetMyProfile`
+##### Responses
 
-<h3 id="get__api_student_user_getmyprofile-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Admin/Quran/surahs/{surahNumber}/ayahs/{ayahNumber}
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## put__api_Student_User_UpdateMyProfile
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| surahNumber | path |  | Yes | integer |
+| ayahNumber | path |  | Yes | integer |
 
-> Code samples
+##### Responses
 
-`PUT /api/Student/User/UpdateMyProfile`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Body parameter
+### /api/Admin/Quran/search
 
-```json
-{
-  "fullName": "string",
-  "userName": "string",
-  "phoneNumber": "string",
-  "city": "string",
-  "street": "string"
-}
-```
+#### GET
+##### Parameters
 
-<h3 id="put__api_student_user_updatemyprofile-parameters">Parameters</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| q | query |  | No | string |
+| limit | query |  | No | integer |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[UpdateProfileRequest](#schemaupdateprofilerequest)|true|none|
+##### Responses
 
-<h3 id="put__api_student_user_updatemyprofile-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Admin/Quran/SearchGeneric
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## put__api_Student_User_ChangePassword
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| query | query |  | No | string |
 
-> Code samples
+##### Responses
 
-`PUT /api/Student/User/ChangePassword`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Body parameter
+### /api/Admin/User/GetAllUsers
 
-```json
-{
-  "currentPassword": "string",
-  "newPassword": "string"
-}
-```
+#### GET
+##### Responses
 
-<h3 id="put__api_student_user_changepassword-parameters">Parameters</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[ChangePasswordRequest](#schemachangepasswordrequest)|true|none|
+### /api/Admin/User/GetUserById/{id}
 
-<h3 id="put__api_student_user_changepassword-responses">Responses</h3>
+#### GET
+##### Parameters
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | string |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+##### Responses
 
-## put__api_Student_User_ChangeEmail
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Code samples
+### /api/Admin/User/BlockUser/{userId}
 
-`PUT /api/Student/User/ChangeEmail`
+#### PATCH
+##### Parameters
 
-> Body parameter
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| userId | path |  | Yes | string |
 
-```json
-{
-  "newEmail": "string"
-}
-```
+##### Responses
 
-<h3 id="put__api_student_user_changeemail-parameters">Parameters</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[ChangeEmailRequest](#schemachangeemailrequest)|true|none|
+### /api/Admin/User/UnBlockUser/{userId}
 
-<h3 id="put__api_student_user_changeemail-responses">Responses</h3>
+#### PATCH
+##### Parameters
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| userId | path |  | Yes | string |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+##### Responses
 
-## get__api_Student_User_ConfirmNewEmail
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Code samples
+### /api/Admin/User/IsBlockedUser/{userId}
 
-`GET /api/Student/User/ConfirmNewEmail`
+#### PATCH
+##### Parameters
 
-<h3 id="get__api_student_user_confirmnewemail-parameters">Parameters</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| userId | path |  | Yes | string |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|userId|query|string|false|none|
-|token|query|string|false|none|
-|newEmail|query|string|false|none|
+##### Responses
 
-<h3 id="get__api_student_user_confirmnewemail-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Admin/User/ChangeRole/{userId}
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### PATCH
+##### Parameters
 
-## get__api_Admin_User_GetAllUsers
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| userId | path |  | Yes | string |
 
-> Code samples
+##### Responses
 
-`GET /api/Admin/User/GetAllUsers`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_user_getallusers-responses">Responses</h3>
+### /api/Admin/User/GetMyProfile
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## get__api_Admin_User_GetUserById_{id}
+### /api/Admin/User/UpdateMyProfile
 
-> Code samples
+#### PUT
+##### Responses
 
-`GET /api/Admin/User/GetUserById/{id}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_user_getuserbyid_{id}-parameters">Parameters</h3>
+### /api/Admin/User/ChangePassword
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|string|true|none|
+#### PUT
+##### Responses
 
-<h3 id="get__api_admin_user_getuserbyid_{id}-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Admin/User/ChangeEmail
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### PUT
+##### Responses
 
-## patch__api_Admin_User_BlockUser_{userId}
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Code samples
+### /api/Admin/User/ConfirmNewEmail
 
-`PATCH /api/Admin/User/BlockUser/{userId}`
+#### GET
+##### Parameters
 
-> Body parameter
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| userId | query |  | No | string |
+| token | query |  | No | string |
+| newEmail | query |  | No | string |
 
-```json
-0
-```
+##### Responses
 
-<h3 id="patch__api_admin_user_blockuser_{userid}-parameters">Parameters</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|userId|path|string|true|none|
-|body|body|integer(int32)|true|none|
+### /api/Admin/UserProgress/add
 
-<h3 id="patch__api_admin_user_blockuser_{userid}-responses">Responses</h3>
+#### POST
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Admin/UserProgress/me
 
-## patch__api_Admin_User_UnBlockUser_{userId}
+#### GET
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`PATCH /api/Admin/User/UnBlockUser/{userId}`
+### /api/Admin/ThikrCategory/GetAudioUrls
 
-<h3 id="patch__api_admin_user_unblockuser_{userid}-parameters">Parameters</h3>
+#### GET
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|userId|path|string|true|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="patch__api_admin_user_unblockuser_{userid}-responses">Responses</h3>
+### /api/Admin/ThikrCategory/GetAll
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## patch__api_Admin_User_IsBlockedUser_{userId}
+### /api/Admin/ThikrCategory/GetById/{id}
 
-> Code samples
+#### GET
+##### Parameters
 
-`PATCH /api/Admin/User/IsBlockedUser/{userId}`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="patch__api_admin_user_isblockeduser_{userid}-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|userId|path|string|true|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="patch__api_admin_user_isblockeduser_{userid}-responses">Responses</h3>
+### /api/Admin/ThikrCategory/Search
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| query | query |  | No | string |
 
-## patch__api_Admin_User_ChangeRole_{userId}
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`PATCH /api/Admin/User/ChangeRole/{userId}`
+### /api/Admin/ThikrCategory/Create
 
-> Body parameter
+#### POST
+##### Responses
 
-```json
-{
-  "roleName": "string"
-}
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="patch__api_admin_user_changerole_{userid}-parameters">Parameters</h3>
+### /api/Admin/ThikrCategory/Update/{id}
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|userId|path|string|true|none|
-|body|body|[ChangeRoleRequest](#schemachangerolerequest)|true|none|
+#### PUT
+##### Parameters
 
-<h3 id="patch__api_admin_user_changerole_{userid}-responses">Responses</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## get__api_Admin_User_GetMyProfile
+### /api/Admin/ThikrCategory/Delete/{id}
 
-> Code samples
+#### DELETE
+##### Parameters
 
-`GET /api/Admin/User/GetMyProfile`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="get__api_admin_user_getmyprofile-responses">Responses</h3>
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Admin/ThikrCategory/ToggleStatus/{id}
 
-## put__api_Admin_User_UpdateMyProfile
+#### PATCH
+##### Parameters
 
-> Code samples
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-`PUT /api/Admin/User/UpdateMyProfile`
+##### Responses
 
-> Body parameter
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-```json
-{
-  "fullName": "string",
-  "userName": "string",
-  "phoneNumber": "string",
-  "city": "string",
-  "street": "string"
-}
-```
+### /api/Admin/ThikrItem/GetAll
 
-<h3 id="put__api_admin_user_updatemyprofile-parameters">Parameters</h3>
+#### GET
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[UpdateProfileRequest](#schemaupdateprofilerequest)|true|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="put__api_admin_user_updatemyprofile-responses">Responses</h3>
+### /api/Admin/ThikrItem/GetById/{id}
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-## put__api_Admin_User_ChangePassword
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`PUT /api/Admin/User/ChangePassword`
+### /api/Admin/ThikrItem/GetByCategoryId/{categoryId}
 
-> Body parameter
+#### GET
+##### Parameters
 
-```json
-{
-  "currentPassword": "string",
-  "newPassword": "string"
-}
-```
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| categoryId | path |  | Yes | integer |
 
-<h3 id="put__api_admin_user_changepassword-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[ChangePasswordRequest](#schemachangepasswordrequest)|true|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="put__api_admin_user_changepassword-responses">Responses</h3>
+### /api/Admin/ThikrItem/Search
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| query | query |  | No | string |
 
-## put__api_Admin_User_ChangeEmail
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`PUT /api/Admin/User/ChangeEmail`
+### /api/Admin/ThikrItem/GetByCount
 
-> Body parameter
+#### GET
+##### Parameters
 
-```json
-{
-  "newEmail": "string"
-}
-```
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| minCount | query |  | No | integer |
+| maxCount | query |  | No | integer |
 
-<h3 id="put__api_admin_user_changeemail-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[ChangeEmailRequest](#schemachangeemailrequest)|true|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="put__api_admin_user_changeemail-responses">Responses</h3>
+### /api/Admin/ThikrItem/Create
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### POST
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## get__api_Admin_User_ConfirmNewEmail
+### /api/Admin/ThikrItem/Update/{id}
 
-> Code samples
+#### PUT
+##### Parameters
 
-`GET /api/Admin/User/ConfirmNewEmail`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="get__api_admin_user_confirmnewemail-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|userId|query|string|false|none|
-|token|query|string|false|none|
-|newEmail|query|string|false|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_user_confirmnewemail-responses">Responses</h3>
+### /api/Admin/ThikrItem/Delete/{id}
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### DELETE
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h1 id="pl-v1-userprogress">UserProgress</h1>
+##### Responses
 
-## post__api_Student_UserProgress_add
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Code samples
+### /api/Admin/ThikrItem/ToggleStatus/{id}
 
-`POST /api/Student/UserProgress/add`
+#### PATCH
+##### Parameters
 
-> Body parameter
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-```json
-{
-  "type": "Thikr",
-  "relatedItemId": 0,
-  "count": 0
-}
-```
+##### Responses
 
-<h3 id="post__api_student_userprogress_add-parameters">Parameters</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[ProgressCreateRequest](#schemaprogresscreaterequest)|true|none|
+### /api/Admin/HadithBooks/GetAll
 
-<h3 id="post__api_student_userprogress_add-responses">Responses</h3>
+#### GET
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Admin/HadithBooks/GetById/{id}
 
-## get__api_Student_UserProgress_me
+#### GET
+##### Parameters
 
-> Code samples
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-`GET /api/Student/UserProgress/me`
+##### Responses
 
-<h3 id="get__api_student_userprogress_me-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Admin/HadithBooks/Search
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## post__api_Admin_UserProgress_add
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| query | query |  | No | string |
 
-> Code samples
+##### Responses
 
-`POST /api/Admin/UserProgress/add`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Body parameter
+### /api/Admin/HadithBooks/{id}/chapters
 
-```json
-{
-  "type": "Thikr",
-  "relatedItemId": 0,
-  "count": 0
-}
-```
+#### GET
+##### Parameters
 
-<h3 id="post__api_admin_userprogress_add-parameters">Parameters</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[ProgressCreateRequest](#schemaprogresscreaterequest)|true|none|
+##### Responses
 
-<h3 id="post__api_admin_userprogress_add-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Admin/HadithBooks/{id}/hadiths
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## get__api_Admin_UserProgress_me
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-> Code samples
+##### Responses
 
-`GET /api/Admin/UserProgress/me`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_userprogress_me-responses">Responses</h3>
+### /api/Admin/HadithBooks/{id}/random
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h1 id="pl-v1-thikrcategory">ThikrCategory</h1>
+##### Responses
 
-## get__api_Student_ThikrCategory_GetAll
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Code samples
+### /api/Admin/HadithBooks/{id}/stats
 
-`GET /api/Student/ThikrCategory/GetAll`
+#### GET
+##### Parameters
 
-<h3 id="get__api_student_thikrcategory_getall-responses">Responses</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## get__api_Student_ThikrCategory_GetById_{id}
+### /api/Admin/HadithBooks/Create
 
-> Code samples
+#### POST
+##### Responses
 
-`GET /api/Student/ThikrCategory/GetById/{id}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_student_thikrcategory_getbyid_{id}-parameters">Parameters</h3>
+### /api/Admin/HadithBooks/Update/{id}
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+#### PUT
+##### Parameters
 
-<h3 id="get__api_student_thikrcategory_getbyid_{id}-responses">Responses</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## get__api_Student_ThikrCategory_Search
+### /api/Admin/HadithBooks/Delete/{id}
 
-> Code samples
+#### DELETE
+##### Parameters
 
-`GET /api/Student/ThikrCategory/Search`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="get__api_student_thikrcategory_search-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|query|query|string|false|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_student_thikrcategory_search-responses">Responses</h3>
+### /api/Admin/HadithBooks/ToggleStatus/{id}
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### PATCH
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-## get__api_Admin_ThikrCategory_GetAudioUrls
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Admin/ThikrCategory/GetAudioUrls`
+### /api/Admin/HadithChapters/GetAll
 
-<h3 id="get__api_admin_thikrcategory_getaudiourls-responses">Responses</h3>
+#### GET
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Admin/HadithChapters/GetById/{id}
 
-## get__api_Admin_ThikrCategory_GetAll
+#### GET
+##### Parameters
 
-> Code samples
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-`GET /api/Admin/ThikrCategory/GetAll`
+##### Responses
 
-<h3 id="get__api_admin_thikrcategory_getall-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Admin/HadithChapters/book/{bookId}
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Parameters
 
-## get__api_Admin_ThikrCategory_GetById_{id}
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| bookId | path |  | Yes | integer |
 
-> Code samples
+##### Responses
 
-`GET /api/Admin/ThikrCategory/GetById/{id}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_thikrcategory_getbyid_{id}-parameters">Parameters</h3>
+### /api/Admin/HadithChapters/Search
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+#### GET
+##### Parameters
 
-<h3 id="get__api_admin_thikrcategory_getbyid_{id}-responses">Responses</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| query | query |  | No | string |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## get__api_Admin_ThikrCategory_Search
+### /api/Admin/HadithChapters/{id}/hadiths
 
-> Code samples
+#### GET
+##### Parameters
 
-`GET /api/Admin/ThikrCategory/Search`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="get__api_admin_thikrcategory_search-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|query|query|string|false|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_thikrcategory_search-responses">Responses</h3>
+### /api/Admin/HadithChapters/{id}/random
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-## post__api_Admin_ThikrCategory_Create
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`POST /api/Admin/ThikrCategory/Create`
+### /api/Admin/HadithChapters/{id}/stats
 
-> Body parameter
+#### GET
+##### Parameters
 
-```json
-{
-  "title": "string",
-  "normalizedText": "string",
-  "audioUrl": "string"
-}
-```
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="post__api_admin_thikrcategory_create-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[ThikrCategoryRequest](#schemathikrcategoryrequest)|true|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="post__api_admin_thikrcategory_create-responses">Responses</h3>
+### /api/Admin/HadithChapters/Create
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### POST
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## put__api_Admin_ThikrCategory_Update_{id}
+### /api/Admin/HadithChapters/Update/{id}
 
-> Code samples
+#### PUT
+##### Parameters
 
-`PUT /api/Admin/ThikrCategory/Update/{id}`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-> Body parameter
+##### Responses
 
-```json
-{
-  "title": "string",
-  "normalizedText": "string",
-  "audioUrl": "string"
-}
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="put__api_admin_thikrcategory_update_{id}-parameters">Parameters</h3>
+### /api/Admin/HadithChapters/Delete/{id}
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-|body|body|[ThikrCategoryRequest](#schemathikrcategoryrequest)|true|none|
+#### DELETE
+##### Parameters
 
-<h3 id="put__api_admin_thikrcategory_update_{id}-responses">Responses</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## delete__api_Admin_ThikrCategory_Delete_{id}
+### /api/Admin/HadithChapters/ToggleStatus/{id}
 
-> Code samples
+#### PATCH
+##### Parameters
 
-`DELETE /api/Admin/ThikrCategory/Delete/{id}`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="delete__api_admin_thikrcategory_delete_{id}-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="delete__api_admin_thikrcategory_delete_{id}-responses">Responses</h3>
+### /api/Admin/Hadiths/GetAll
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## patch__api_Admin_ThikrCategory_ToggleStatus_{id}
+### /api/Admin/Hadiths/GetById/{id}
 
-> Code samples
+#### GET
+##### Parameters
 
-`PATCH /api/Admin/ThikrCategory/ToggleStatus/{id}`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="patch__api_admin_thikrcategory_togglestatus_{id}-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="patch__api_admin_thikrcategory_togglestatus_{id}-responses">Responses</h3>
+### /api/Admin/Hadiths/chapter/{chapterId}
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| chapterId | path |  | Yes | integer |
 
-<h1 id="pl-v1-thikritem">ThikrItem</h1>
+##### Responses
 
-## get__api_Student_ThikrItem_GetAll
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Code samples
+### /api/Admin/Hadiths/book/{bookId}
 
-`GET /api/Student/ThikrItem/GetAll`
+#### GET
+##### Parameters
 
-<h3 id="get__api_student_thikritem_getall-responses">Responses</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| bookId | path |  | Yes | integer |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## get__api_Student_ThikrItem_GetById_{id}
+### /api/Admin/Hadiths/Search
 
-> Code samples
+#### GET
+##### Parameters
 
-`GET /api/Student/ThikrItem/GetById/{id}`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| query | query |  | No | string |
 
-<h3 id="get__api_student_thikritem_getbyid_{id}-parameters">Parameters</h3>
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_student_thikritem_getbyid_{id}-responses">Responses</h3>
+### /api/Admin/Hadiths/englishNarrator/{name}
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| name | path |  | Yes | string |
 
-## get__api_Student_ThikrItem_GetByCategoryId_{categoryId}
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Student/ThikrItem/GetByCategoryId/{categoryId}`
+### /api/Admin/Hadiths/random
 
-<h3 id="get__api_student_thikritem_getbycategoryid_{categoryid}-parameters">Parameters</h3>
+#### GET
+##### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|categoryId|path|integer(int32)|true|none|
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| bookId | query |  | No | integer |
+| chapterId | query |  | No | integer |
 
-<h3 id="get__api_student_thikritem_getbycategoryid_{categoryid}-responses">Responses</h3>
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Admin/Hadiths/stats
 
-## get__api_Student_ThikrItem_Search
+#### GET
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Student/ThikrItem/Search`
+### /api/Admin/Hadiths/Create
 
-<h3 id="get__api_student_thikritem_search-parameters">Parameters</h3>
+#### POST
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|query|query|string|false|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_student_thikritem_search-responses">Responses</h3>
+### /api/Admin/Hadiths/Update/{id}
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### PUT
+##### Parameters
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-## get__api_Student_ThikrItem_GetByCount
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Student/ThikrItem/GetByCount`
+### /api/Admin/Hadiths/Delete/{id}
 
-<h3 id="get__api_student_thikritem_getbycount-parameters">Parameters</h3>
+#### DELETE
+##### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|minCount|query|integer(int32)|false|none|
-|maxCount|query|integer(int32)|false|none|
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-<h3 id="get__api_student_thikritem_getbycount-responses">Responses</h3>
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Admin/Hadiths/ToggleStatus/{id}
 
-## get__api_Admin_ThikrItem_GetAll
+#### PATCH
+##### Parameters
 
-> Code samples
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-`GET /api/Admin/ThikrItem/GetAll`
+##### Responses
 
-<h3 id="get__api_admin_thikritem_getall-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Student/Category/GetAll
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### GET
+##### Responses
 
-## get__api_Admin_ThikrItem_GetById_{id}
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Code samples
+### /api/Student/Category/GetById/{id}
 
-`GET /api/Admin/ThikrItem/GetById/{id}`
+#### GET
+##### Parameters
 
-<h3 id="get__api_admin_thikritem_getbyid_{id}-parameters">Parameters</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+##### Responses
 
-<h3 id="get__api_admin_thikritem_getbyid_{id}-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Identity/Authentication/Refresh
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### POST
+##### Responses
 
-## get__api_Admin_ThikrItem_GetByCategoryId_{categoryId}
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Code samples
+### /api/Identity/Authentication/Register
 
-`GET /api/Admin/ThikrItem/GetByCategoryId/{categoryId}`
+#### POST
+##### Responses
 
-<h3 id="get__api_admin_thikritem_getbycategoryid_{categoryid}-parameters">Parameters</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|categoryId|path|integer(int32)|true|none|
+### /api/Identity/Authentication/Login
 
-<h3 id="get__api_admin_thikritem_getbycategoryid_{categoryid}-responses">Responses</h3>
+#### POST
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Identity/Authentication/Logout
 
-## get__api_Admin_ThikrItem_Search
+#### POST
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Admin/ThikrItem/Search`
+### /api/Identity/Authentication/ConfirmEmail
 
-<h3 id="get__api_admin_thikritem_search-parameters">Parameters</h3>
+#### GET
+##### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|query|query|string|false|none|
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| token | query |  | No | string |
+| userId | query |  | No | string |
 
-<h3 id="get__api_admin_thikritem_search-responses">Responses</h3>
+##### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+### /api/Identity/Authentication/ForgotPassword
 
-## get__api_Admin_ThikrItem_GetByCount
+#### POST
+##### Responses
 
-> Code samples
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-`GET /api/Admin/ThikrItem/GetByCount`
+### /api/Identity/Authentication/ResetPassword
 
-<h3 id="get__api_admin_thikritem_getbycount-parameters">Parameters</h3>
+#### POST
+##### Responses
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|minCount|query|integer(int32)|false|none|
-|maxCount|query|integer(int32)|false|none|
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="get__api_admin_thikritem_getbycount-responses">Responses</h3>
+### /api/Admin/Category/GetAll
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### GET
+##### Responses
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-## post__api_Admin_ThikrItem_Create
+### /api/Admin/Category/GetById/{id}
 
-> Code samples
+#### GET
+##### Parameters
 
-`POST /api/Admin/ThikrItem/Create`
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-> Body parameter
+##### Responses
 
-```json
-{
-  "text": "string",
-  "normalizedText": "string",
-  "count": 0,
-  "description": "string",
-  "reference": "string",
-  "thikrCategoryId": 0
-}
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="post__api_admin_thikritem_create-parameters">Parameters</h3>
+### /api/Admin/Category/Create
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[ThikrItemRequest](#schemathikritemrequest)|true|none|
+#### POST
+##### Responses
 
-<h3 id="post__api_admin_thikritem_create-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Admin/Category/Update/{id}
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### PATCH
+##### Parameters
 
-## put__api_Admin_ThikrItem_Update_{id}
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-> Code samples
+##### Responses
 
-`PUT /api/Admin/ThikrItem/Update/{id}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-> Body parameter
+### /api/Admin/Category/ToggleStatus/{id}
 
-```json
-{
-  "text": "string",
-  "normalizedText": "string",
-  "count": 0,
-  "description": "string",
-  "reference": "string",
-  "thikrCategoryId": 0
-}
-```
+#### PATCH
+##### Parameters
 
-<h3 id="put__api_admin_thikritem_update_{id}-parameters">Parameters</h3>
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-|body|body|[ThikrItemRequest](#schemathikritemrequest)|true|none|
+##### Responses
 
-<h3 id="put__api_admin_thikritem_update_{id}-responses">Responses</h3>
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+### /api/Admin/Category/Delete/{id}
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### DELETE
+##### Parameters
 
-## delete__api_Admin_ThikrItem_Delete_{id}
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
 
-> Code samples
+##### Responses
 
-`DELETE /api/Admin/ThikrItem/Delete/{id}`
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
 
-<h3 id="delete__api_admin_thikritem_delete_{id}-parameters">Parameters</h3>
+### Models
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
 
-<h3 id="delete__api_admin_thikritem_delete_{id}-responses">Responses</h3>
+#### ChangeEmailRequest
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| newEmail | string |  | No |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### ChangePasswordRequest
 
-## patch__api_Admin_ThikrItem_ToggleStatus_{id}
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| currentPassword | string |  | No |
+| newPassword | string |  | No |
 
-> Code samples
+#### ChangeRoleRequest
 
-`PATCH /api/Admin/ThikrItem/ToggleStatus/{id}`
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| roleName | string |  | No |
 
-<h3 id="patch__api_admin_thikritem_togglestatus_{id}-parameters">Parameters</h3>
+#### FilesTypes
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| FilesTypes | integer |  |  |
 
-<h3 id="patch__api_admin_thikritem_togglestatus_{id}-responses">Responses</h3>
+#### ForgotPasswordRequest
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| email | string |  | No |
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+#### HadithBookRequest
 
-<h1 id="pl-v1-hadithbooks">HadithBooks</h1>
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| arabicTitle | string |  | No |
+| arabicAuthor | string |  | No |
+| arabicIntroduction | string |  | No |
+| englishTitle | string |  | No |
+| englishAuthor | string |  | No |
+| englishIntroduction | string |  | No |
 
-## get__api_Student_HadithBooks_GetAll
+#### HadithChapterRequest
 
-> Code samples
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| arabicTitle | string |  | No |
+| englishTitle | string |  | No |
+| hadithBookId | integer |  | No |
 
-`GET /api/Student/HadithBooks/GetAll`
+#### HadithRequest
 
-<h3 id="get__api_student_hadithbooks_getall-responses">Responses</h3>
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| idInBook | integer |  | No |
+| arabicText | string |  | No |
+| normalizedText | string |  | No |
+| englishNarrator | string |  | No |
+| englishText | string |  | No |
+| hadithChapterId | integer |  | No |
+| hadithBookId | integer |  | No |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### IFormFile
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| IFormFile | string |  |  |
 
-## get__api_Student_HadithBooks_GetById_{id}
+#### LoginRequest
 
-> Code samples
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| email | string |  | No |
+| password | string |  | No |
 
-`GET /api/Student/HadithBooks/GetById/{id}`
+#### ProgressCreateRequest
 
-<h3 id="get__api_student_hadithbooks_getbyid_{id}-parameters">Parameters</h3>
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| type | [ProgressType](#progresstype) |  | No |
+| relatedItemId | integer |  | No |
+| count | integer |  | No |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+#### ProgressType
 
-<h3 id="get__api_student_hadithbooks_getbyid_{id}-responses">Responses</h3>
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| ProgressType |  |  |  |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### QuestionRequest
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| text | string |  | No |
+| correctAnswer | string |  | No |
+| options | [ string ] |  | No |
 
-## get__api_Student_HadithBooks_Search
+#### QuizRequest
 
-> Code samples
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| title | string |  | No |
+| lessonId | integer |  | No |
+| questions | [ [QuestionRequest](#questionrequest) ] |  | No |
 
-`GET /api/Student/HadithBooks/Search`
+#### RefreshTokenRequest
 
-<h3 id="get__api_student_hadithbooks_search-parameters">Parameters</h3>
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| refreshToken | string |  | No |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|query|query|string|false|none|
+#### RegisterRequest
 
-<h3 id="get__api_student_hadithbooks_search-responses">Responses</h3>
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| fullName | string |  | No |
+| userName | string |  | No |
+| email | string |  | No |
+| password | string |  | No |
+| phoneNumber | string |  | No |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### ResetPasswordRequest
 
-<aside class="success">
-This operation does not require authentication
-</aside>
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| newPassword | string |  | No |
+| email | string |  | No |
+| code | string |  | No |
 
-## get__api_Student_HadithBooks_{id}_chapters
+#### ThikrCategoryRequest
 
-> Code samples
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| title | string |  | No |
+| normalizedText | string |  | No |
+| audioUrl | string |  | No |
 
-`GET /api/Student/HadithBooks/{id}/chapters`
+#### ThikrItemRequest
 
-<h3 id="get__api_student_hadithbooks_{id}_chapters-parameters">Parameters</h3>
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| text | string |  | No |
+| normalizedText | string |  | No |
+| count | integer |  | No |
+| description | string |  | No |
+| reference | string |  | No |
+| thikrCategoryId | integer |  | No |
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
+#### UpdateProfileRequest
 
-<h3 id="get__api_student_hadithbooks_{id}_chapters-responses">Responses</h3>
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| fullName | string |  | No |
+| userName | string |  | No |
+| phoneNumber | string |  | No |
+| city | string |  | No |
+| street | string |  | No |
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+#### UserDto
 
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_HadithBooks_{id}_hadiths
-
-> Code samples
-
-`GET /api/Student/HadithBooks/{id}/hadiths`
-
-<h3 id="get__api_student_hadithbooks_{id}_hadiths-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_student_hadithbooks_{id}_hadiths-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_HadithBooks_{id}_random
-
-> Code samples
-
-`GET /api/Student/HadithBooks/{id}/random`
-
-<h3 id="get__api_student_hadithbooks_{id}_random-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_student_hadithbooks_{id}_random-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_HadithBooks_{id}_stats
-
-> Code samples
-
-`GET /api/Student/HadithBooks/{id}/stats`
-
-<h3 id="get__api_student_hadithbooks_{id}_stats-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_student_hadithbooks_{id}_stats-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithBooks_GetAll
-
-> Code samples
-
-`GET /api/Admin/HadithBooks/GetAll`
-
-<h3 id="get__api_admin_hadithbooks_getall-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithBooks_GetById_{id}
-
-> Code samples
-
-`GET /api/Admin/HadithBooks/GetById/{id}`
-
-<h3 id="get__api_admin_hadithbooks_getbyid_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_hadithbooks_getbyid_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithBooks_Search
-
-> Code samples
-
-`GET /api/Admin/HadithBooks/Search`
-
-<h3 id="get__api_admin_hadithbooks_search-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|query|query|string|false|none|
-
-<h3 id="get__api_admin_hadithbooks_search-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithBooks_{id}_chapters
-
-> Code samples
-
-`GET /api/Admin/HadithBooks/{id}/chapters`
-
-<h3 id="get__api_admin_hadithbooks_{id}_chapters-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_hadithbooks_{id}_chapters-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithBooks_{id}_hadiths
-
-> Code samples
-
-`GET /api/Admin/HadithBooks/{id}/hadiths`
-
-<h3 id="get__api_admin_hadithbooks_{id}_hadiths-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_hadithbooks_{id}_hadiths-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithBooks_{id}_random
-
-> Code samples
-
-`GET /api/Admin/HadithBooks/{id}/random`
-
-<h3 id="get__api_admin_hadithbooks_{id}_random-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_hadithbooks_{id}_random-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithBooks_{id}_stats
-
-> Code samples
-
-`GET /api/Admin/HadithBooks/{id}/stats`
-
-<h3 id="get__api_admin_hadithbooks_{id}_stats-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_hadithbooks_{id}_stats-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## post__api_Admin_HadithBooks_Create
-
-> Code samples
-
-`POST /api/Admin/HadithBooks/Create`
-
-> Body parameter
-
-```json
-{
-  "arabicTitle": "string",
-  "arabicAuthor": "string",
-  "arabicIntroduction": "string",
-  "englishTitle": "string",
-  "englishAuthor": "string",
-  "englishIntroduction": "string"
-}
-```
-
-<h3 id="post__api_admin_hadithbooks_create-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[HadithBookRequest](#schemahadithbookrequest)|true|none|
-
-<h3 id="post__api_admin_hadithbooks_create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## put__api_Admin_HadithBooks_Update_{id}
-
-> Code samples
-
-`PUT /api/Admin/HadithBooks/Update/{id}`
-
-> Body parameter
-
-```json
-{
-  "arabicTitle": "string",
-  "arabicAuthor": "string",
-  "arabicIntroduction": "string",
-  "englishTitle": "string",
-  "englishAuthor": "string",
-  "englishIntroduction": "string"
-}
-```
-
-<h3 id="put__api_admin_hadithbooks_update_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-|body|body|[HadithBookRequest](#schemahadithbookrequest)|true|none|
-
-<h3 id="put__api_admin_hadithbooks_update_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## delete__api_Admin_HadithBooks_Delete_{id}
-
-> Code samples
-
-`DELETE /api/Admin/HadithBooks/Delete/{id}`
-
-<h3 id="delete__api_admin_hadithbooks_delete_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="delete__api_admin_hadithbooks_delete_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## patch__api_Admin_HadithBooks_ToggleStatus_{id}
-
-> Code samples
-
-`PATCH /api/Admin/HadithBooks/ToggleStatus/{id}`
-
-<h3 id="patch__api_admin_hadithbooks_togglestatus_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="patch__api_admin_hadithbooks_togglestatus_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-<h1 id="pl-v1-hadithchapters">HadithChapters</h1>
-
-## get__api_Student_HadithChapters_GetAll
-
-> Code samples
-
-`GET /api/Student/HadithChapters/GetAll`
-
-<h3 id="get__api_student_hadithchapters_getall-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_HadithChapters_GetById_{id}
-
-> Code samples
-
-`GET /api/Student/HadithChapters/GetById/{id}`
-
-<h3 id="get__api_student_hadithchapters_getbyid_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_student_hadithchapters_getbyid_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_HadithChapters_book_{bookId}
-
-> Code samples
-
-`GET /api/Student/HadithChapters/book/{bookId}`
-
-<h3 id="get__api_student_hadithchapters_book_{bookid}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|bookId|path|integer(int32)|true|none|
-
-<h3 id="get__api_student_hadithchapters_book_{bookid}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_HadithChapters_Search
-
-> Code samples
-
-`GET /api/Student/HadithChapters/Search`
-
-<h3 id="get__api_student_hadithchapters_search-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|query|query|string|false|none|
-
-<h3 id="get__api_student_hadithchapters_search-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_HadithChapters_{id}_hadiths
-
-> Code samples
-
-`GET /api/Student/HadithChapters/{id}/hadiths`
-
-<h3 id="get__api_student_hadithchapters_{id}_hadiths-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_student_hadithchapters_{id}_hadiths-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_HadithChapters_{id}_random
-
-> Code samples
-
-`GET /api/Student/HadithChapters/{id}/random`
-
-<h3 id="get__api_student_hadithchapters_{id}_random-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_student_hadithchapters_{id}_random-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_HadithChapters_{id}_stats
-
-> Code samples
-
-`GET /api/Student/HadithChapters/{id}/stats`
-
-<h3 id="get__api_student_hadithchapters_{id}_stats-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_student_hadithchapters_{id}_stats-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithChapters_GetAll
-
-> Code samples
-
-`GET /api/Admin/HadithChapters/GetAll`
-
-<h3 id="get__api_admin_hadithchapters_getall-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithChapters_GetById_{id}
-
-> Code samples
-
-`GET /api/Admin/HadithChapters/GetById/{id}`
-
-<h3 id="get__api_admin_hadithchapters_getbyid_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_hadithchapters_getbyid_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithChapters_book_{bookId}
-
-> Code samples
-
-`GET /api/Admin/HadithChapters/book/{bookId}`
-
-<h3 id="get__api_admin_hadithchapters_book_{bookid}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|bookId|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_hadithchapters_book_{bookid}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithChapters_Search
-
-> Code samples
-
-`GET /api/Admin/HadithChapters/Search`
-
-<h3 id="get__api_admin_hadithchapters_search-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|query|query|string|false|none|
-
-<h3 id="get__api_admin_hadithchapters_search-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithChapters_{id}_hadiths
-
-> Code samples
-
-`GET /api/Admin/HadithChapters/{id}/hadiths`
-
-<h3 id="get__api_admin_hadithchapters_{id}_hadiths-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_hadithchapters_{id}_hadiths-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithChapters_{id}_random
-
-> Code samples
-
-`GET /api/Admin/HadithChapters/{id}/random`
-
-<h3 id="get__api_admin_hadithchapters_{id}_random-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_hadithchapters_{id}_random-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_HadithChapters_{id}_stats
-
-> Code samples
-
-`GET /api/Admin/HadithChapters/{id}/stats`
-
-<h3 id="get__api_admin_hadithchapters_{id}_stats-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_hadithchapters_{id}_stats-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## post__api_Admin_HadithChapters_Create
-
-> Code samples
-
-`POST /api/Admin/HadithChapters/Create`
-
-> Body parameter
-
-```json
-{
-  "arabicTitle": "string",
-  "englishTitle": "string",
-  "hadithBookId": 0
-}
-```
-
-<h3 id="post__api_admin_hadithchapters_create-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[HadithChapterRequest](#schemahadithchapterrequest)|true|none|
-
-<h3 id="post__api_admin_hadithchapters_create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## put__api_Admin_HadithChapters_Update_{id}
-
-> Code samples
-
-`PUT /api/Admin/HadithChapters/Update/{id}`
-
-> Body parameter
-
-```json
-{
-  "arabicTitle": "string",
-  "englishTitle": "string",
-  "hadithBookId": 0
-}
-```
-
-<h3 id="put__api_admin_hadithchapters_update_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-|body|body|[HadithChapterRequest](#schemahadithchapterrequest)|true|none|
-
-<h3 id="put__api_admin_hadithchapters_update_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## delete__api_Admin_HadithChapters_Delete_{id}
-
-> Code samples
-
-`DELETE /api/Admin/HadithChapters/Delete/{id}`
-
-<h3 id="delete__api_admin_hadithchapters_delete_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="delete__api_admin_hadithchapters_delete_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## patch__api_Admin_HadithChapters_ToggleStatus_{id}
-
-> Code samples
-
-`PATCH /api/Admin/HadithChapters/ToggleStatus/{id}`
-
-<h3 id="patch__api_admin_hadithchapters_togglestatus_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="patch__api_admin_hadithchapters_togglestatus_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-<h1 id="pl-v1-hadiths">Hadiths</h1>
-
-## get__api_Student_Hadiths_GetAll
-
-> Code samples
-
-`GET /api/Student/Hadiths/GetAll`
-
-<h3 id="get__api_student_hadiths_getall-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_Hadiths_GetById_{id}
-
-> Code samples
-
-`GET /api/Student/Hadiths/GetById/{id}`
-
-<h3 id="get__api_student_hadiths_getbyid_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_student_hadiths_getbyid_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_Hadiths_chapter_{chapterId}
-
-> Code samples
-
-`GET /api/Student/Hadiths/chapter/{chapterId}`
-
-<h3 id="get__api_student_hadiths_chapter_{chapterid}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|chapterId|path|integer(int32)|true|none|
-
-<h3 id="get__api_student_hadiths_chapter_{chapterid}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_Hadiths_book_{bookId}
-
-> Code samples
-
-`GET /api/Student/Hadiths/book/{bookId}`
-
-<h3 id="get__api_student_hadiths_book_{bookid}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|bookId|path|integer(int32)|true|none|
-
-<h3 id="get__api_student_hadiths_book_{bookid}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_Hadiths_Search
-
-> Code samples
-
-`GET /api/Student/Hadiths/Search`
-
-<h3 id="get__api_student_hadiths_search-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|query|query|string|false|none|
-
-<h3 id="get__api_student_hadiths_search-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_Hadiths_englishNarrator_{name}
-
-> Code samples
-
-`GET /api/Student/Hadiths/englishNarrator/{name}`
-
-<h3 id="get__api_student_hadiths_englishnarrator_{name}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|name|path|string|true|none|
-
-<h3 id="get__api_student_hadiths_englishnarrator_{name}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_Hadiths_random
-
-> Code samples
-
-`GET /api/Student/Hadiths/random`
-
-<h3 id="get__api_student_hadiths_random-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|bookId|query|integer(int32)|false|none|
-|chapterId|query|integer(int32)|false|none|
-
-<h3 id="get__api_student_hadiths_random-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_Hadiths_stats
-
-> Code samples
-
-`GET /api/Student/Hadiths/stats`
-
-<h3 id="get__api_student_hadiths_stats-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_Hadiths_GetAll
-
-> Code samples
-
-`GET /api/Admin/Hadiths/GetAll`
-
-<h3 id="get__api_admin_hadiths_getall-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_Hadiths_GetById_{id}
-
-> Code samples
-
-`GET /api/Admin/Hadiths/GetById/{id}`
-
-<h3 id="get__api_admin_hadiths_getbyid_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_hadiths_getbyid_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_Hadiths_chapter_{chapterId}
-
-> Code samples
-
-`GET /api/Admin/Hadiths/chapter/{chapterId}`
-
-<h3 id="get__api_admin_hadiths_chapter_{chapterid}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|chapterId|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_hadiths_chapter_{chapterid}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_Hadiths_book_{bookId}
-
-> Code samples
-
-`GET /api/Admin/Hadiths/book/{bookId}`
-
-<h3 id="get__api_admin_hadiths_book_{bookid}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|bookId|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_hadiths_book_{bookid}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_Hadiths_Search
-
-> Code samples
-
-`GET /api/Admin/Hadiths/Search`
-
-<h3 id="get__api_admin_hadiths_search-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|query|query|string|false|none|
-
-<h3 id="get__api_admin_hadiths_search-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_Hadiths_englishNarrator_{name}
-
-> Code samples
-
-`GET /api/Admin/Hadiths/englishNarrator/{name}`
-
-<h3 id="get__api_admin_hadiths_englishnarrator_{name}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|name|path|string|true|none|
-
-<h3 id="get__api_admin_hadiths_englishnarrator_{name}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_Hadiths_random
-
-> Code samples
-
-`GET /api/Admin/Hadiths/random`
-
-<h3 id="get__api_admin_hadiths_random-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|bookId|query|integer(int32)|false|none|
-|chapterId|query|integer(int32)|false|none|
-
-<h3 id="get__api_admin_hadiths_random-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_Hadiths_stats
-
-> Code samples
-
-`GET /api/Admin/Hadiths/stats`
-
-<h3 id="get__api_admin_hadiths_stats-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## post__api_Admin_Hadiths_Create
-
-> Code samples
-
-`POST /api/Admin/Hadiths/Create`
-
-> Body parameter
-
-```json
-{
-  "idInBook": 0,
-  "arabicText": "string",
-  "normalizedText": "string",
-  "englishNarrator": "string",
-  "englishText": "string",
-  "hadithChapterId": 0,
-  "hadithBookId": 0
-}
-```
-
-<h3 id="post__api_admin_hadiths_create-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[HadithRequest](#schemahadithrequest)|true|none|
-
-<h3 id="post__api_admin_hadiths_create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## put__api_Admin_Hadiths_Update_{id}
-
-> Code samples
-
-`PUT /api/Admin/Hadiths/Update/{id}`
-
-> Body parameter
-
-```json
-{
-  "idInBook": 0,
-  "arabicText": "string",
-  "normalizedText": "string",
-  "englishNarrator": "string",
-  "englishText": "string",
-  "hadithChapterId": 0,
-  "hadithBookId": 0
-}
-```
-
-<h3 id="put__api_admin_hadiths_update_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-|body|body|[HadithRequest](#schemahadithrequest)|true|none|
-
-<h3 id="put__api_admin_hadiths_update_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## delete__api_Admin_Hadiths_Delete_{id}
-
-> Code samples
-
-`DELETE /api/Admin/Hadiths/Delete/{id}`
-
-<h3 id="delete__api_admin_hadiths_delete_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="delete__api_admin_hadiths_delete_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## patch__api_Admin_Hadiths_ToggleStatus_{id}
-
-> Code samples
-
-`PATCH /api/Admin/Hadiths/ToggleStatus/{id}`
-
-<h3 id="patch__api_admin_hadiths_togglestatus_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="patch__api_admin_hadiths_togglestatus_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-<h1 id="pl-v1-category">Category</h1>
-
-## get__api_Student_Category_GetAll
-
-> Code samples
-
-`GET /api/Student/Category/GetAll`
-
-<h3 id="get__api_student_category_getall-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Student_Category_GetById_{id}
-
-> Code samples
-
-`GET /api/Student/Category/GetById/{id}`
-
-<h3 id="get__api_student_category_getbyid_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_student_category_getbyid_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_Category_GetAll
-
-> Code samples
-
-`GET /api/Admin/Category/GetAll`
-
-<h3 id="get__api_admin_category_getall-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Admin_Category_GetById_{id}
-
-> Code samples
-
-`GET /api/Admin/Category/GetById/{id}`
-
-<h3 id="get__api_admin_category_getbyid_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="get__api_admin_category_getbyid_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## post__api_Admin_Category_Create
-
-> Code samples
-
-`POST /api/Admin/Category/Create`
-
-> Body parameter
-
-```yaml
-Name: string
-MainImage: string
-
-```
-
-<h3 id="post__api_admin_category_create-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|object|true|none|
-|» Name|body|string|false|none|
-|» MainImage|body|[IFormFile](#schemaiformfile)(binary)|false|none|
-
-<h3 id="post__api_admin_category_create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## patch__api_Admin_Category_Update_{id}
-
-> Code samples
-
-`PATCH /api/Admin/Category/Update/{id}`
-
-> Body parameter
-
-```yaml
-Name: string
-MainImage: string
-
-```
-
-<h3 id="patch__api_admin_category_update_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-|body|body|object|true|none|
-|» Name|body|string|false|none|
-|» MainImage|body|[IFormFile](#schemaiformfile)(binary)|false|none|
-
-<h3 id="patch__api_admin_category_update_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## patch__api_Admin_Category_ToggleStatus_{id}
-
-> Code samples
-
-`PATCH /api/Admin/Category/ToggleStatus/{id}`
-
-<h3 id="patch__api_admin_category_togglestatus_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="patch__api_admin_category_togglestatus_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## delete__api_Admin_Category_Delete_{id}
-
-> Code samples
-
-`DELETE /api/Admin/Category/Delete/{id}`
-
-<h3 id="delete__api_admin_category_delete_{id}-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int32)|true|none|
-
-<h3 id="delete__api_admin_category_delete_{id}-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-<h1 id="pl-v1-authentication">Authentication</h1>
-
-## post__api_Identity_Authentication_Refresh
-
-> Code samples
-
-`POST /api/Identity/Authentication/Refresh`
-
-> Body parameter
-
-```json
-{
-  "refreshToken": "string"
-}
-```
-
-<h3 id="post__api_identity_authentication_refresh-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[RefreshTokenRequest](#schemarefreshtokenrequest)|true|none|
-
-> Example responses
-
-> 200 Response
-
-```
-{"accessToken":"string","refreshToken":"string"}
-```
-
-```json
-{
-  "accessToken": "string",
-  "refreshToken": "string"
-}
-```
-
-<h3 id="post__api_identity_authentication_refresh-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[UserDto](#schemauserdto)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## post__api_Identity_Authentication_Register
-
-> Code samples
-
-`POST /api/Identity/Authentication/Register`
-
-> Body parameter
-
-```json
-{
-  "fullName": "string",
-  "userName": "string",
-  "email": "string",
-  "password": "string",
-  "phoneNumber": "string"
-}
-```
-
-<h3 id="post__api_identity_authentication_register-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[RegisterRequest](#schemaregisterrequest)|true|none|
-
-> Example responses
-
-> 200 Response
-
-```
-{"accessToken":"string","refreshToken":"string"}
-```
-
-```json
-{
-  "accessToken": "string",
-  "refreshToken": "string"
-}
-```
-
-<h3 id="post__api_identity_authentication_register-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[UserDto](#schemauserdto)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## post__api_Identity_Authentication_Login
-
-> Code samples
-
-`POST /api/Identity/Authentication/Login`
-
-> Body parameter
-
-```json
-{
-  "email": "string",
-  "password": "string"
-}
-```
-
-<h3 id="post__api_identity_authentication_login-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[LoginRequest](#schemaloginrequest)|true|none|
-
-> Example responses
-
-> 200 Response
-
-```
-{"accessToken":"string","refreshToken":"string"}
-```
-
-```json
-{
-  "accessToken": "string",
-  "refreshToken": "string"
-}
-```
-
-<h3 id="post__api_identity_authentication_login-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[UserDto](#schemauserdto)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## post__api_Identity_Authentication_Logout
-
-> Code samples
-
-`POST /api/Identity/Authentication/Logout`
-
-<h3 id="post__api_identity_authentication_logout-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__api_Identity_Authentication_ConfirmEmail
-
-> Code samples
-
-`GET /api/Identity/Authentication/ConfirmEmail`
-
-<h3 id="get__api_identity_authentication_confirmemail-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|token|query|string|false|none|
-|userId|query|string|false|none|
-
-> Example responses
-
-> 200 Response
-
-```
-"string"
-```
-
-```json
-"string"
-```
-
-<h3 id="get__api_identity_authentication_confirmemail-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|string|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## post__api_Identity_Authentication_ForgotPassword
-
-> Code samples
-
-`POST /api/Identity/Authentication/ForgotPassword`
-
-> Body parameter
-
-```json
-{
-  "email": "string"
-}
-```
-
-<h3 id="post__api_identity_authentication_forgotpassword-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[ForgotPasswordRequest](#schemaforgotpasswordrequest)|true|none|
-
-> Example responses
-
-> 200 Response
-
-```
-"string"
-```
-
-```json
-"string"
-```
-
-<h3 id="post__api_identity_authentication_forgotpassword-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|string|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## post__api_Identity_Authentication_ResetPassword
-
-> Code samples
-
-`POST /api/Identity/Authentication/ResetPassword`
-
-> Body parameter
-
-```json
-{
-  "newPassword": "string",
-  "email": "string",
-  "code": "string"
-}
-```
-
-<h3 id="post__api_identity_authentication_resetpassword-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[ResetPasswordRequest](#schemaresetpasswordrequest)|true|none|
-
-> Example responses
-
-> 200 Response
-
-```
-"string"
-```
-
-```json
-"string"
-```
-
-<h3 id="post__api_identity_authentication_resetpassword-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|string|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-# Schemas
-
-<h2 id="tocS_ChangeEmailRequest">ChangeEmailRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemachangeemailrequest"></a>
-<a id="schema_ChangeEmailRequest"></a>
-<a id="tocSchangeemailrequest"></a>
-<a id="tocschangeemailrequest"></a>
-
-```json
-{
-  "newEmail": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|newEmail|string|false|none|none|
-
-<h2 id="tocS_ChangePasswordRequest">ChangePasswordRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemachangepasswordrequest"></a>
-<a id="schema_ChangePasswordRequest"></a>
-<a id="tocSchangepasswordrequest"></a>
-<a id="tocschangepasswordrequest"></a>
-
-```json
-{
-  "currentPassword": "string",
-  "newPassword": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|currentPassword|string|false|none|none|
-|newPassword|string|false|none|none|
-
-<h2 id="tocS_ChangeRoleRequest">ChangeRoleRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemachangerolerequest"></a>
-<a id="schema_ChangeRoleRequest"></a>
-<a id="tocSchangerolerequest"></a>
-<a id="tocschangerolerequest"></a>
-
-```json
-{
-  "roleName": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|roleName|string|false|none|none|
-
-<h2 id="tocS_FilesTypes">FilesTypes</h2>
-<!-- backwards compatibility -->
-<a id="schemafilestypes"></a>
-<a id="schema_FilesTypes"></a>
-<a id="tocSfilestypes"></a>
-<a id="tocsfilestypes"></a>
-
-```json
-0
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|*anonymous*|integer|false|none|none|
-
-<h2 id="tocS_ForgotPasswordRequest">ForgotPasswordRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemaforgotpasswordrequest"></a>
-<a id="schema_ForgotPasswordRequest"></a>
-<a id="tocSforgotpasswordrequest"></a>
-<a id="tocsforgotpasswordrequest"></a>
-
-```json
-{
-  "email": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|email|string|false|none|none|
-
-<h2 id="tocS_HadithBookRequest">HadithBookRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemahadithbookrequest"></a>
-<a id="schema_HadithBookRequest"></a>
-<a id="tocShadithbookrequest"></a>
-<a id="tocshadithbookrequest"></a>
-
-```json
-{
-  "arabicTitle": "string",
-  "arabicAuthor": "string",
-  "arabicIntroduction": "string",
-  "englishTitle": "string",
-  "englishAuthor": "string",
-  "englishIntroduction": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|arabicTitle|string|false|none|none|
-|arabicAuthor|string|false|none|none|
-|arabicIntroduction|string|false|none|none|
-|englishTitle|string|false|none|none|
-|englishAuthor|string|false|none|none|
-|englishIntroduction|string|false|none|none|
-
-<h2 id="tocS_HadithChapterRequest">HadithChapterRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemahadithchapterrequest"></a>
-<a id="schema_HadithChapterRequest"></a>
-<a id="tocShadithchapterrequest"></a>
-<a id="tocshadithchapterrequest"></a>
-
-```json
-{
-  "arabicTitle": "string",
-  "englishTitle": "string",
-  "hadithBookId": 0
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|arabicTitle|string|false|none|none|
-|englishTitle|string|false|none|none|
-|hadithBookId|integer(int32)|false|none|none|
-
-<h2 id="tocS_HadithRequest">HadithRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemahadithrequest"></a>
-<a id="schema_HadithRequest"></a>
-<a id="tocShadithrequest"></a>
-<a id="tocshadithrequest"></a>
-
-```json
-{
-  "idInBook": 0,
-  "arabicText": "string",
-  "normalizedText": "string",
-  "englishNarrator": "string",
-  "englishText": "string",
-  "hadithChapterId": 0,
-  "hadithBookId": 0
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|idInBook|integer(int32)|false|none|none|
-|arabicText|string|false|none|none|
-|normalizedText|string|false|none|none|
-|englishNarrator|string|false|none|none|
-|englishText|string|false|none|none|
-|hadithChapterId|integer(int32)|false|none|none|
-|hadithBookId|integer(int32)|false|none|none|
-
-<h2 id="tocS_IFormFile">IFormFile</h2>
-<!-- backwards compatibility -->
-<a id="schemaiformfile"></a>
-<a id="schema_IFormFile"></a>
-<a id="tocSiformfile"></a>
-<a id="tocsiformfile"></a>
-
-```json
-"string"
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|*anonymous*|string(binary)|false|none|none|
-
-<h2 id="tocS_LoginRequest">LoginRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemaloginrequest"></a>
-<a id="schema_LoginRequest"></a>
-<a id="tocSloginrequest"></a>
-<a id="tocsloginrequest"></a>
-
-```json
-{
-  "email": "string",
-  "password": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|email|string|false|none|none|
-|password|string|false|none|none|
-
-<h2 id="tocS_ProgressCreateRequest">ProgressCreateRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemaprogresscreaterequest"></a>
-<a id="schema_ProgressCreateRequest"></a>
-<a id="tocSprogresscreaterequest"></a>
-<a id="tocsprogresscreaterequest"></a>
-
-```json
-{
-  "type": "Thikr",
-  "relatedItemId": 0,
-  "count": 0
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|type|[ProgressType](#schemaprogresstype)|false|none|none|
-|relatedItemId|integer(int32)¦null|false|none|none|
-|count|integer(int32)|false|none|none|
-
-<h2 id="tocS_ProgressType">ProgressType</h2>
-<!-- backwards compatibility -->
-<a id="schemaprogresstype"></a>
-<a id="schema_ProgressType"></a>
-<a id="tocSprogresstype"></a>
-<a id="tocsprogresstype"></a>
-
-```json
-"Thikr"
-
-```
-
-### Properties
-
-*None*
-
-<h2 id="tocS_QuestionRequest">QuestionRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemaquestionrequest"></a>
-<a id="schema_QuestionRequest"></a>
-<a id="tocSquestionrequest"></a>
-<a id="tocsquestionrequest"></a>
-
-```json
-{
-  "text": "string",
-  "correctAnswer": "string",
-  "options": [
-    "string"
-  ]
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|text|string|false|none|none|
-|correctAnswer|string|false|none|none|
-|options|[string]|false|none|none|
-
-<h2 id="tocS_QuizRequest">QuizRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemaquizrequest"></a>
-<a id="schema_QuizRequest"></a>
-<a id="tocSquizrequest"></a>
-<a id="tocsquizrequest"></a>
-
-```json
-{
-  "title": "string",
-  "lessonId": 0,
-  "questions": [
-    {
-      "text": "string",
-      "correctAnswer": "string",
-      "options": [
-        "string"
-      ]
-    }
-  ]
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|title|string|false|none|none|
-|lessonId|integer(int32)|false|none|none|
-|questions|[[QuestionRequest](#schemaquestionrequest)]|false|none|none|
-
-<h2 id="tocS_RefreshTokenRequest">RefreshTokenRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemarefreshtokenrequest"></a>
-<a id="schema_RefreshTokenRequest"></a>
-<a id="tocSrefreshtokenrequest"></a>
-<a id="tocsrefreshtokenrequest"></a>
-
-```json
-{
-  "refreshToken": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|refreshToken|string|false|none|none|
-
-<h2 id="tocS_RegisterRequest">RegisterRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemaregisterrequest"></a>
-<a id="schema_RegisterRequest"></a>
-<a id="tocSregisterrequest"></a>
-<a id="tocsregisterrequest"></a>
-
-```json
-{
-  "fullName": "string",
-  "userName": "string",
-  "email": "string",
-  "password": "string",
-  "phoneNumber": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|fullName|string|false|none|none|
-|userName|string|false|none|none|
-|email|string|false|none|none|
-|password|string|false|none|none|
-|phoneNumber|string|false|none|none|
-
-<h2 id="tocS_ResetPasswordRequest">ResetPasswordRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemaresetpasswordrequest"></a>
-<a id="schema_ResetPasswordRequest"></a>
-<a id="tocSresetpasswordrequest"></a>
-<a id="tocsresetpasswordrequest"></a>
-
-```json
-{
-  "newPassword": "string",
-  "email": "string",
-  "code": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|newPassword|string|false|none|none|
-|email|string|false|none|none|
-|code|string|false|none|none|
-
-<h2 id="tocS_ThikrCategoryRequest">ThikrCategoryRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemathikrcategoryrequest"></a>
-<a id="schema_ThikrCategoryRequest"></a>
-<a id="tocSthikrcategoryrequest"></a>
-<a id="tocsthikrcategoryrequest"></a>
-
-```json
-{
-  "title": "string",
-  "normalizedText": "string",
-  "audioUrl": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|title|string|false|none|none|
-|normalizedText|string|false|none|none|
-|audioUrl|string|false|none|none|
-
-<h2 id="tocS_ThikrItemRequest">ThikrItemRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemathikritemrequest"></a>
-<a id="schema_ThikrItemRequest"></a>
-<a id="tocSthikritemrequest"></a>
-<a id="tocsthikritemrequest"></a>
-
-```json
-{
-  "text": "string",
-  "normalizedText": "string",
-  "count": 0,
-  "description": "string",
-  "reference": "string",
-  "thikrCategoryId": 0
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|text|string|false|none|none|
-|normalizedText|string|false|none|none|
-|count|integer(int32)|false|none|none|
-|description|string|false|none|none|
-|reference|string|false|none|none|
-|thikrCategoryId|integer(int32)|false|none|none|
-
-<h2 id="tocS_UpdateProfileRequest">UpdateProfileRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemaupdateprofilerequest"></a>
-<a id="schema_UpdateProfileRequest"></a>
-<a id="tocSupdateprofilerequest"></a>
-<a id="tocsupdateprofilerequest"></a>
-
-```json
-{
-  "fullName": "string",
-  "userName": "string",
-  "phoneNumber": "string",
-  "city": "string",
-  "street": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|fullName|string|false|none|none|
-|userName|string|false|none|none|
-|phoneNumber|string|false|none|none|
-|city|string|false|none|none|
-|street|string|false|none|none|
-
-<h2 id="tocS_UserDto">UserDto</h2>
-<!-- backwards compatibility -->
-<a id="schemauserdto"></a>
-<a id="schema_UserDto"></a>
-<a id="tocSuserdto"></a>
-<a id="tocsuserdto"></a>
-
-```json
-{
-  "accessToken": "string",
-  "refreshToken": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|accessToken|string|false|none|none|
-|refreshToken|string|false|none|none|
-
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| accessToken | string |  | No |
+| refreshToken | string |  | No |
