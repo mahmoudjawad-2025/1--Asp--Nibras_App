@@ -8,7 +8,7 @@ A clean, scalable **3-layer architecture** (DAL → BLL → PL) with generic CRU
 
 
 <hr>
-<br>
+
 
 ## 📌 Table of Contents
 - [🚀 Overview](#-overview)
