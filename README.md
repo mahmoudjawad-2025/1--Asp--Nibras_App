@@ -346,7 +346,7 @@ Configure the following in `appsettings.json` or environment variables:
 
 
 ## 📘 API Documentation
-[To see the api document of this project click here](./docs/Api_Document.md)
+[To see the api document of this project click here](./Docs/Api_Document.md)
 
 <br>
 
