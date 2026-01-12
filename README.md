@@ -6,7 +6,7 @@ A clean, scalable **3-layer architecture** (DAL → BLL → PL) with generic CRU
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-<br>
+
 <hr>
 <br>
 
